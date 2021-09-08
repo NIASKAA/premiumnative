@@ -1,0 +1,6 @@
+module Pods_premiumnative {
+  umbrella header "Pods-premiumnative-umbrella.h"
+
+  export *
+  module * { export * }
+}

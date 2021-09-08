@@ -1,0 +1,6 @@
+module Pods_premiumnative_premiumnativeTests {
+  umbrella header "Pods-premiumnative-premiumnativeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
