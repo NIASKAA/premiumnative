@@ -1,7 +1,11 @@
 import React from 'react'
 import {Footer, FooterTab, Button, Text} from 'native-base'
+import { useNavigation } from '@react-navigation/native';
 
-export function Navigation() {
+export default function BottomNavigation() {
+
+    const navigation = useNavigation();
+
     return (
         <>
             <Footer>
@@ -9,7 +13,7 @@ export function Navigation() {
                     <Button>
                         <Text>Catalog</Text>
                     </Button>
-                    <Button>
+                    <Button onPress={() => navigation.navigate('Profile')}>
                         <Text>User</Text>
                     </Button>
                     <Button>

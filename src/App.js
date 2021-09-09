@@ -1,22 +1,16 @@
 import React from 'react';
 import "react-native-gesture-handler";
-import { ApolloProvider } from '@apollo/client';
-import { Container, Content, Text} from 'native-base';
-import {HeaderNavi} from './components/Header'
-import {Navigation} from './components/Footer'
+import {ApolloProvider } from '@apollo/client';
+import {Container} from 'native-base';
 import {client} from './apollo'
+import Navigation from './navigation/Navigation';
+
 const App = () => {
 
   return (
     <ApolloProvider client={client}>
       <Container>
-        <HeaderNavi/>
-          <Content>
-            <Text>
-              This is Content Section
-            </Text>
-          </Content>
-        <Navigation/>
+          <Navigation/>
       </Container>
     </ApolloProvider>
   );

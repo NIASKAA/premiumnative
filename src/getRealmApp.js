@@ -1,4 +1,4 @@
-import realm from 'realm';
+import Realm from 'realm';
 
 let app;
 
@@ -15,5 +15,6 @@ export function getRealmApp() {
     };
     app = new Realm.App(appConfig);
   }
+
   return app;
 }

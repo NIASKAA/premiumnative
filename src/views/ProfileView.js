@@ -1,12 +1,11 @@
 import React from 'react'
 import {Text} from 'native-base';
 
-export function WelcomeView({navigation}) {
+
+export function ProfileView({navigation}) {
     return (
         <>
-            <Text>Gunpla please</Text>
+            <Text>Profile please</Text>
         </>
     )
 }
-
-
