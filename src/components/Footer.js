@@ -1,9 +1,10 @@
 import React from 'react'
-import {Footer, FooterTab, Button, Text} from 'native-base'
+import {Footer, FooterTab, Button, Text, Icon} from 'native-base'
+import Ionicons from 'react-native-vector-icons/Ionicons'
 import { useNavigation } from '@react-navigation/native';
 
 export default function BottomNavigation() {
-
+    Ionicons.loadFont()
     const navigation = useNavigation();
 
     return (
@@ -14,9 +15,11 @@ export default function BottomNavigation() {
                         <Text>Catalog</Text>
                     </Button>
                     <Button onPress={() => navigation.navigate('Profile')}>
+                        <Icon name="person" />
                         <Text>User</Text>
                     </Button>
                     <Button onPress={() => navigation.navigate('Settings')}>
+                        <Icon name="settings"/>
                         <Text>Settings</Text>
                     </Button>
                 </FooterTab>

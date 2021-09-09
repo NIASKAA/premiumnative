@@ -345,9 +345,11 @@ PODS:
     - React-Core
   - RNGestureHandler (1.10.3):
     - React-Core
-  - RNScreens (3.6.0):
+  - RNScreens (3.7.0):
     - React-Core
     - React-RCTImage
+  - RNVectorIcons (7.1.0):
+    - React
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -408,6 +410,7 @@ DEPENDENCIES:
   - "RNCAsyncStorage (from `../node_modules/@react-native-async-storage/async-storage`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -494,6 +497,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -544,7 +549,8 @@ SPEC CHECKSUMS:
   RealmJS: e6691dbdccd8b5666c2271ef95616befe68a8b7e
   RNCAsyncStorage: 7102fe8985f889579a3ae148d957bbb3f308122b
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
-  RNScreens: eb0dfb2d6b21d2d7f980ad46b14eb306d2f1062e
+  RNScreens: 2a71d74b4e530f051f5684c8111d7591176722cf
+  RNVectorIcons: bc69e6a278b14842063605de32bec61f0b251a59
   Yoga: aa0cb45287ebe1004c02a13f279c55a95f1572f4
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
