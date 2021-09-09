@@ -1,18 +1,24 @@
 import React from 'react';
 import "react-native-gesture-handler";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-
+import { ApolloProvider } from '@apollo/client';
+import { Container, Content, Text} from 'native-base';
+import {HeaderNavi} from './components/Header'
+import {Navigation} from './components/Footer'
+import {client} from './apollo'
 const App = () => {
 
-  const Stack = createStackNavigator();
-
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ApolloProvider client={client}>
+      <Container>
+        <HeaderNavi/>
+          <Content>
+            <Text>
+              This is Content Section
+            </Text>
+          </Content>
+        <Navigation/>
+      </Container>
+    </ApolloProvider>
   );
 };
 
