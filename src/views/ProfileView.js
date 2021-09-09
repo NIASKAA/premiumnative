@@ -1,11 +1,18 @@
 import React from 'react'
-import {Text} from 'native-base';
+import {Segment, Header, Title, Text, Button} from 'native-base';
 
 
-export function ProfileView({navigation}) {
+export function ProfileView() {
     return (
         <>
-            <Text>Profile please</Text>
+            <Header hasSegment>
+                <Title>Profile</Title>
+            </Header>
+            <Segment>
+                <Button first><Text>Owned</Text></Button>
+                <Button last><Text>Wishlist</Text></Button>
+            </Segment>
+           
         </>
     )
 }

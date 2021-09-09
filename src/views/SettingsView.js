@@ -1,12 +1,11 @@
 import React from 'react'
 import {Text} from 'native-base';
 
-export function WelcomeView() {
+
+export function SettingView() {
     return (
         <>
-            <Text>Gunpla please</Text>
+            <Text>Setting please</Text>
         </>
     )
 }
-
-

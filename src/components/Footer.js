@@ -10,13 +10,13 @@ export default function BottomNavigation() {
         <>
             <Footer>
                 <FooterTab>
-                    <Button>
+                    <Button onPress={() => navigation.navigate('Catalog')}>
                         <Text>Catalog</Text>
                     </Button>
                     <Button onPress={() => navigation.navigate('Profile')}>
                         <Text>User</Text>
                     </Button>
-                    <Button>
+                    <Button onPress={() => navigation.navigate('Settings')}>
                         <Text>Settings</Text>
                     </Button>
                 </FooterTab>
