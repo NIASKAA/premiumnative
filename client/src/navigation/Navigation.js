@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import BottomNavigation from '../components/Footer'
-import {SettingView, ProfileView, CatalogView, SplashView, LoginView, SignupView} from '../views'
+import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView} from '../views'
 
 export default function Navigation() {
     return (
@@ -21,22 +21,30 @@ function RootNavigator() {
             <Stack.Screen
               name="Splash"
               component={SplashView}
-              options={{headerShown: false}}
+              options={{headerShown: false,}}
             />
             <Stack.Screen 
               name="SignUp"
               component={SignupView}
-              options={{title: 'Sign-Up'}}
+              options={{
+                headerShown: false,
+                title: 'Sign-Up'
+              }}
             />
             <Stack.Screen
               name="Login"
               component={LoginView}
-              options={{title: 'Login'}}
+              options={{
+                title: 'Login',
+                headerShown: false
+              }}
             />
             <Stack.Screen
               name="Catalog"
               component={CatalogView}
-              options={{title: 'Catalog'}}
+              options={{
+                title: 'Catalog'
+              }}
             />
 
             <Stack.Screen
@@ -47,7 +55,7 @@ function RootNavigator() {
 
             <Stack.Screen
               name="Settings"
-              component={SettingView}
+              component={SettingsView}
               options={{title: 'Settings'}}
             />
       </Stack.Navigator>

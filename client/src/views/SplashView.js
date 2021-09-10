@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {Container, Spinner} from 'native-base'
 import {useNavigation} from '@react-navigation/native'
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SplashView = () => {
     const navigation = useNavigation()
@@ -11,7 +11,7 @@ const SplashView = () => {
           if (await isAuthenticated()) {
             navigation.navigate('Catalog');
           } else {
-            navigation.navigate('SignIn');
+            navigation.navigate('SignUp');
           }
         }
     

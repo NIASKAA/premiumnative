@@ -1,11 +1,13 @@
 import React from 'react'
-import {Text} from 'native-base';
-
+import {Text, Button} from 'native-base';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SettingView = () => {
     return (
         <>
-            <Text>Setting please</Text>
+            <Button>
+                <Text>Log Out</Text>
+            </Button>
         </>
     )
 }

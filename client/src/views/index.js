@@ -1,5 +1,5 @@
 export {default as SplashView} from './SplashView'
-export {default as Login} from './LoginView'
+export {default as LoginView} from './LoginView'
 export {default as SignupView} from './SignupView'
 export {default as CatalogView} from './CatalogView'
 export {default as ProfileView} from './ProfileView'

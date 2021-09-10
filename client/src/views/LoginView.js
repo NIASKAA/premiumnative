@@ -1,14 +1,15 @@
 import React, {useState} from 'react'
-import {Alert} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage'
+import {Alert, Pressable} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
 import {LOGIN} from '../utils/mutations'
-import {Content, Form, Input, Item, Button} from 'native-base'
+import {Content, Form, Input, Item, Button, Text} from 'native-base'
 
 const LoginView = () => {
     const navigation = useNavigation()
-    const [userForm, setUserForm] = useState({email: '', password: ''})
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
     const [login, {data, error}] = useMutation(LOGIN)
 
     if(data) {
@@ -25,39 +26,47 @@ const LoginView = () => {
     const handleFormSubmit = () => {
         login({
             variables: {
-                email: userForm.email,
-                password: userForm.password
+                email: email,
+                password: password
             }
         })
     }
 
     return (
-        <>
-            <Content>
-                <Form onSubmit={handleFormSubmit}>
-                    <Item>
-                        <Input 
-                            placeholder="Email" 
-                            value={userForm.email}
-                            onChangeText={(text) => {setUserForm({email: text})}}
-                        />
-                    </Item>
-                    <Item last>
-                        <Input 
-                            placeholder="Password" 
-                            value={userForm.password}
-                            onChangeText={(text) => {setUserForm({password: text})}}
-                        />
-                    </Item>
-                    <Button>Sign Up</Button>
-                </Form>
-                <Button 
-                    onPress={() => {navigation.navigate('SignUp')}}
-                >
-                    Don't have an account? Sign up here!
-                </Button>
-            </Content>
-        </>
+        <Content>
+            <Form>
+                <Item>
+                    <Input 
+                        placeholder="Email" 
+                        value={email}
+                        onChange={setEmail}
+                        autoCorrect={false}
+                    />
+                </Item>
+                <Item>
+                    <Input 
+                        placeholder="Password" 
+                        value={password}
+                        onChange={setPassword}
+                        secureTextEntry
+                        autoCorrect={false}
+                    />
+                </Item>
+                <Pressable 
+                    onSubmit={handleFormSubmit}
+                    style={{ 
+                        height: 50,
+                        borderRadius: 5,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        marginTop: 30,
+                      }}
+                ><Text>Login</Text></Pressable>
+            </Form>
+            <Button onPress={() => {navigation.navigate('SignUp')}}><Text>
+                Don't have an account? Sign up here!
+            </Text></Button>
+        </Content>
     )
 }
 
