@@ -2,7 +2,7 @@ import React from 'react'
 import {Segment, Header, Title, Text, Button} from 'native-base';
 
 
-export function ProfileView() {
+const ProfileView = () => {
     return (
         <>
             <Header hasSegment>
@@ -16,3 +16,5 @@ export function ProfileView() {
         </>
     )
 }
+
+export default ProfileView;

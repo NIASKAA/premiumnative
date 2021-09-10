@@ -1,4 +1,4 @@
-const {ApolloServer, gql} = require("apollo-server");
+const { ApolloServer } = require("apollo-server");
 const db = require('./connection/connection');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');

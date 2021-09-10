@@ -2,7 +2,7 @@ import React from 'react'
 import { useNavigation } from '@react-navigation/native';
 import {Container, Button, Text} from 'native-base'
 
-export function CatalogView() {
+const CatalogView = () => {
     return (
         <>
             <Container>
@@ -38,4 +38,5 @@ export function CatalogView() {
     )
 }
 
+export default CatalogView;
 
