@@ -1,7 +1,8 @@
 import React from 'react'
-import {Text, Button} from 'native-base';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {Text, Button, Content} from 'native-base';
 import {useNavigation} from '@react-navigation/native'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import BottomNavigation from '../components/Footer'
 
 const SettingView = () => {
     const navigation = useNavigation()
@@ -12,11 +13,16 @@ const SettingView = () => {
             navigation.navigate('Login')
         })
     }
+    
     return (
         <>
-            <Button onPress={() => {logout()}}>
-                <Text>Log Out</Text>
-            </Button>
+            <Content>
+                <Button onPress={() => {logout()}}>
+                    <Text>Log Out</Text>
+                </Button>
+            </Content>
+
+            <BottomNavigation/>
         </>
     )
 }

@@ -8,7 +8,6 @@ export default function Navigation() {
     return (
       <NavigationContainer>
         <RootNavigator />
-        <BottomNavigation/>
       </NavigationContainer>
     );
   }
@@ -43,7 +42,8 @@ function RootNavigator() {
               name="Catalog"
               component={CatalogView}
               options={{
-                title: 'Catalog'
+                title: 'Catalog',
+                headerShown: false,
               }}
             />
 

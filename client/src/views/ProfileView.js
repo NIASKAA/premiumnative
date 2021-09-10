@@ -1,5 +1,6 @@
 import React from 'react'
-import {Segment, Header, Title, Text, Button} from 'native-base';
+import BottomNavigation from '../components/Footer'
+import {Segment, Header, Title, Text, Button, Content} from 'native-base';
 
 
 const ProfileView = () => {
@@ -8,11 +9,16 @@ const ProfileView = () => {
             <Header hasSegment>
                 <Title>Profile</Title>
             </Header>
+
             <Segment>
                 <Button first><Text>Owned</Text></Button>
                 <Button last><Text>Wishlist</Text></Button>
             </Segment>
+            
+            <Content>
+            </Content>
            
+           <BottomNavigation/>
         </>
     )
 }
