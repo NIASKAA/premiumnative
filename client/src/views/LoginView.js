@@ -26,8 +26,8 @@ const LoginView = () => {
     const handleFormSubmit = () => {
         login({
             variables: {
-                email: email,
-                password: password
+                email,
+                password
             }
         })
     }
@@ -39,7 +39,7 @@ const LoginView = () => {
                     <Input 
                         placeholder="Email" 
                         value={email}
-                        onChange={setEmail}
+                        onChangeText={setEmail}
                         autoCorrect={false}
                     />
                 </Item>
@@ -47,13 +47,13 @@ const LoginView = () => {
                     <Input 
                         placeholder="Password" 
                         value={password}
-                        onChange={setPassword}
+                        onChangeText={setPassword}
                         secureTextEntry
                         autoCorrect={false}
                     />
                 </Item>
                 <Pressable 
-                    onSubmit={handleFormSubmit}
+                    onPress={handleFormSubmit}
                     style={{ 
                         height: 50,
                         borderRadius: 5,

@@ -23,20 +23,20 @@ function RootNavigator() {
               component={SplashView}
               options={{headerShown: false,}}
             />
-            <Stack.Screen 
-              name="SignUp"
-              component={SignupView}
-              options={{
-                headerShown: false,
-                title: 'Sign-Up'
-              }}
-            />
             <Stack.Screen
               name="Login"
               component={LoginView}
               options={{
                 title: 'Login',
                 headerShown: false
+              }}
+            />
+            <Stack.Screen 
+              name="SignUp"
+              component={SignupView}
+              options={{
+                headerShown: false,
+                title: 'Sign-Up'
               }}
             />
             <Stack.Screen

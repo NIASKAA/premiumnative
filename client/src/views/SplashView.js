@@ -11,7 +11,7 @@ const SplashView = () => {
           if (await isAuthenticated()) {
             navigation.navigate('Catalog');
           } else {
-            navigation.navigate('SignUp');
+            navigation.navigate('Login');
           }
         }
     
