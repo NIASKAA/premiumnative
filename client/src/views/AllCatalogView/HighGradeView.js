@@ -4,7 +4,7 @@ import {useQuery} from '@apollo/client'
 import {Content, Spinner} from 'native-base'
 import {GET_ALL_HG} from '../../utils/queries'
 import {GET_HGS} from '../../utils/state/actions'
-import {HighGradeCards} from '../../components/AllGradeCards'
+
 const HighGradeView = () => {
     const dispatch = useDispatch()
     const state = useSelector((state) => state)
@@ -28,9 +28,9 @@ const HighGradeView = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoadHighGrades(false);
-        }, 1000);
+        }, 3000);
     });
-    
+
     if(loading) return <Spinner/>
     return (
         <>

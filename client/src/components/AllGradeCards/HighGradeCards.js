@@ -1,5 +1,6 @@
 import React from 'react'
-import {Pressable, Image, StyleSheet} from 'react-native'
+import {StyleSheet} from 'react-native'
+import FastImage from 'react-native-fast-image'
 import {Card, CardItem, Text, Body} from 'native-base'
 
 const HighGradeCards = ({highGrades}) => {
@@ -8,7 +9,7 @@ const HighGradeCards = ({highGrades}) => {
             {highGrades.map((highGrade) => (
                 <Card highGrade={highGrade} key={highGrade.id}>
                     <CardItem cardBody>
-                        <Image source={{uri: highGrade.image}} style={styles.grades}/>
+                        <FastImage source={{uri: highGrade.image}} style={styles.grades}/>
                     </CardItem>
                     <CardItem>
                         <Body>

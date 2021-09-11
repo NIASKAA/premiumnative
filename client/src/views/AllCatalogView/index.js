@@ -1,1 +1,7 @@
 export {default as HighGradeView} from './HighGradeView'
+export {default as RealGradeView} from './RealGradeView'
+export {default as RE100OtherView} from './RE100OtherView'
+export {default as MasterGradeView} from './MasterGradeView'
+export {default as PerfectGradeView} from './PerfectGradeView'
+export {default as SDGradeView} from './SDGradeView'
+export {default as ConvergeView} from './ConvergeView'

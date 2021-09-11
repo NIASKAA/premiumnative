@@ -21,23 +21,23 @@ const CatalogView = () => {
                             <Text style={styles.text}>High Grades</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('RealGrades')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/rg-wings-of-the-sky-effect_1_wd2mdo_gvhjin_ftnrhz.jpg'}}
                         />
-                            <Text style={styles.text}>RE/100 & Other</Text>
+                            <Text style={styles.text}>Real Grades</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('RE100Others')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/re-100-vigna-ghina-ii-jupiter-battle-ver_1_cah08v_y2cwge_tpfoqy.jpg'}}
                         />
-                            <Text style={styles.text}>Real Grades</Text>
+                            <Text style={styles.text}>RE/100 & Other</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('MasterGrades')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/mg-maneuver-eclipse-gundam_4_xyhwsi_cwvdw2_idl0g8.jpg'}}
@@ -45,7 +45,7 @@ const CatalogView = () => {
                             <Text style={styles.text}>Master Grades</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('PerfectGrades')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/96022e48-f9c7-4086-82ab-a49db6aefa97_raaizt.jpg'}}
