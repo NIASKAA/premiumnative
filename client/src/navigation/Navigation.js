@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import BottomNavigation from '../components/Footer'
 import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView} from '../views'
+import {HighGradeView} from '../views/AllCatalogView'
 
 export default function Navigation() {
     return (
@@ -57,6 +57,12 @@ function RootNavigator() {
               name="Settings"
               component={SettingsView}
               options={{title: 'Settings'}}
+            />
+
+            <Stack.Screen
+              name="HighGrades"
+              component={HighGradeView}
+              options={{title: 'High-Grades'}}
             />
       </Stack.Navigator>
     )

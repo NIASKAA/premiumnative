@@ -5,6 +5,7 @@ import BottomNavigation from '../components/Footer'
 import {Container, Text, Header, Content, Title} from 'native-base'
 
 const CatalogView = () => {
+    const navigation = useNavigation()
     return (
         <>
             <Container>
@@ -13,8 +14,7 @@ const CatalogView = () => {
                 </Header>
 
                 <Content>
-                    <TouchableOpacity>
-                        
+                    <TouchableOpacity onPress={() => {navigation.navigate('HighGrades')}}>
                         <Image 
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/hguc-gundam-tr-1-hazenthley-rah-ii_7_asnq0w_ftvyib_djhqyj.jpg'}}
                             style={styles.grades}/>
