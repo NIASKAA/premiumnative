@@ -9,7 +9,7 @@ const CatalogView = () => {
         <>
             <Container>
                 <Header hasSegment>
-                    <Title>Profile</Title>
+                    <Title>Catalog</Title>
                 </Header>
 
                 <Content>

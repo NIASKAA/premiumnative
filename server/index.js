@@ -3,6 +3,8 @@ const db = require('./connection/connection');
 const { typeDefs, resolvers } = require('./schemas');
 const { authMiddleware } = require('./utils/auth');
 
+const PORT = process.env.PORT || 4000
+
 const start = async () => {
     const server = new ApolloServer({
         typeDefs,
@@ -11,8 +13,8 @@ const start = async () => {
     })
     
     db.once('open', () => {
-        server.listen().then(({url}) => {
-            console.log(`server ready at ${url}`)
+        server.listen(PORT, () => {
+            console.log(`listening at ${PORT}`)
         })
     })
 }
