@@ -88,6 +88,18 @@ function RootNavigator() {
               component={PerfectGradeView}
               options={{title: 'Perfect-Grades'}}
             />
+
+            <Stack.Screen
+              name="SDGrades"
+              component={SDGradeView}
+              options={{title: 'SD-Grades'}}
+            />
+
+            <Stack.Screen
+              name="Converges"
+              component={ConvergeView}
+              options={{title: 'Converges'}}
+            />
       </Stack.Navigator>
     )
 }

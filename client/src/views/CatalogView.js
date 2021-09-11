@@ -53,7 +53,7 @@ const CatalogView = () => {
                             <Text style={styles.text}>Perfect Grades</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('SDGrades')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/sd-legend-bb-musha-godmaru-final-battle-ver_1_kdktoq_uh32e8.jpg'}}
@@ -61,7 +61,7 @@ const CatalogView = () => {
                             <Text style={styles.text}>SD Grades</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => {navigation.navigate('Converges')}}>
                         <ImageBackground
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/dfd_y53xi7_zid8om.jpg'}}
