@@ -1,5 +1,5 @@
 import React from 'react'
-import {TouchableOpacity, StyleSheet, ImageBackground} from 'react-native'
+import {TouchableOpacity, StyleSheet, ImageBackground, Image} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import BottomNavigation from '../components/Footer'
 import {Container, Text, Header, Content, Title} from 'native-base'
@@ -14,59 +14,59 @@ const CatalogView = () => {
 
                 <Content>
                     <TouchableOpacity>
-                        <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
-                        />
-                            <Text style={{color: 'black'}}>High Grades</Text>
+                        
+                        <Image 
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/hguc-gundam-tr-1-hazenthley-rah-ii_7_asnq0w_ftvyib_djhqyj.jpg'}}
+                            style={styles.grades}/>
+                            <Text style={styles.text}>High Grades</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/rg-wings-of-the-sky-effect_1_wd2mdo_gvhjin_ftnrhz.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>RE/100 & Other</Text>
+                            <Text style={styles.text}>RE/100 & Other</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/re-100-vigna-ghina-ii-jupiter-battle-ver_1_cah08v_y2cwge_tpfoqy.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>Real Grades</Text>
+                            <Text style={styles.text}>Real Grades</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/mg-maneuver-eclipse-gundam_4_xyhwsi_cwvdw2_idl0g8.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>Master Grades</Text>
+                            <Text style={styles.text}>Master Grades</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/96022e48-f9c7-4086-82ab-a49db6aefa97_raaizt.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>Perfect Grades</Text>
+                            <Text style={styles.text}>Perfect Grades</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/sd-legend-bb-musha-godmaru-final-battle-ver_1_kdktoq_uh32e8.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>SD Grades</Text>
+                            <Text style={styles.text}>SD Grades</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity>
                         <ImageBackground
-                            style={styles.highGrades}
-                            source={{uri: ''}}
+                            style={styles.grades}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/dfd_y53xi7_zid8om.jpg'}}
                         />
-                            <Text style={{color: 'black'}}>Converges</Text>
+                            <Text style={styles.convergeText}>Converges</Text>
                     </TouchableOpacity>
                 </Content>
             </Container>
@@ -77,9 +77,17 @@ const CatalogView = () => {
 }
 
 const styles= StyleSheet.create({
-    highGrades: {
+    grades: {
         width: '100%',
-        height: '10%'
+        height: 200
+    },
+    text: {
+        position: 'absolute',
+        color: 'white'
+    },
+    convergeText: {
+        position: 'absolute',
+        color: 'black'
     }
 })
 export default CatalogView;
