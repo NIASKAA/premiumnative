@@ -23,7 +23,6 @@ const RealGradeView = () => {
                 setAllRealGrade(getRG)
             }
         }
-        console.log(data)
     }, [loading, data])
 
     useEffect(() => {

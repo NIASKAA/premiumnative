@@ -79,19 +79,29 @@ const CatalogView = () => {
 const styles= StyleSheet.create({
     grades: {
         width: '100%',
-        height: 200
+        height: 200,
     },
     text: {
         position: 'absolute',
         color: 'white',
         fontFamily: "Bangers-Regular",
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 30,
+        top: 10, 
+        right: 10,
+        textAlign: 'right',
+        flex: 1
     },
     convergeText: {
         position: 'absolute',
         color: 'black',
         fontFamily: "Bangers-Regular",
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 30,
+        top: 10, 
+        right: 10,
+        textAlign: 'right',
+        flex: 1
     }
 })
 export default CatalogView;

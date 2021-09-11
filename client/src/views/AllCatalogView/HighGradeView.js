@@ -22,7 +22,6 @@ const HighGradeView = () => {
                 setAllHighGrade(getHG)
             }
         }
-        console.log(data)
     }, [loading, data])
 
     useEffect(() => {

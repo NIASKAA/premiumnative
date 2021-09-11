@@ -26,7 +26,7 @@ const SplashView = () => {
     return (
         <>
             <Container>
-                <Spinner/>
+                <Spinner color="black"/>
             </Container>
         </>
     )
