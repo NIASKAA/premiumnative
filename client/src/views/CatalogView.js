@@ -83,11 +83,15 @@ const styles= StyleSheet.create({
     },
     text: {
         position: 'absolute',
-        color: 'white'
+        color: 'white',
+        fontFamily: "Bangers-Regular",
+        fontWeight: 'bold'
     },
     convergeText: {
         position: 'absolute',
-        color: 'black'
+        color: 'black',
+        fontFamily: "Bangers-Regular",
+        fontWeight: 'bold'
     }
 })
 export default CatalogView;
