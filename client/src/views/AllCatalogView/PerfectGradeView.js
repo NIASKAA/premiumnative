@@ -4,7 +4,7 @@ import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_PG} from '../../utils/queries'
 import {GET_PGS} from '../../utils/state/actions'
-import {PerfectGradeCards} from '../../components/AllGradeCards'
+import {PerfectGradeList} from '../../components/AllGradeCards'
 
 const PerfectGradeView = () => {
     const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const PerfectGradeView = () => {
         <>
             <Content>
                 {loadPerfectGrades && <Spinner/>}
-                {!loadPerfectGrades && !loading && <PerfectGradeCards perfectGrades={AllPerfectGrade}/>}
+                {!loadPerfectGrades && !loading && <PerfectGradeList perfectGrades={AllPerfectGrade}/>}
             </Content>
         </>
     )

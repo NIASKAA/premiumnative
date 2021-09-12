@@ -4,7 +4,7 @@ import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_MG} from '../../utils/queries'
 import {GET_MGS} from '../../utils/state/actions'
-import {MasterGradeCards} from '../../components/AllGradeCards'
+import {MasterGradeList} from '../../components/AllGradeCards'
 
 const MasterGradeView = () => {
     const dispatch = useDispatch()
@@ -35,7 +35,7 @@ const MasterGradeView = () => {
     return (
         <>
             <Content>
-                {!loadMasterGrade && !loading && <MasterGradeCards masterGrades={AllMasterGrade}/>}
+                {!loadMasterGrade && !loading && <MasterGradeList masterGrades={AllMasterGrade}/>}
             </Content>
         </>
     )

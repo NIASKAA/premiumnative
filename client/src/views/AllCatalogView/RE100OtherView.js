@@ -4,7 +4,7 @@ import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_OTHERS} from '../../utils/queries'
 import {GET_OTHERS} from '../../utils/state/actions'
-import {RE100OtherCards} from '../../components/AllGradeCards'
+import {RE100OtherList} from '../../components/AllGradeCards'
 
 const RE100OtherView = () => {
     const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const RE100OtherView = () => {
     return (
         <>
             <Content>
-                {!loadingOther && !loading && <RE100OtherCards re100Others={AllOther}/>}
+                {!loadingOther && !loading && <RE100OtherList re100Others={AllOther}/>}
             </Content>
         </>
     )

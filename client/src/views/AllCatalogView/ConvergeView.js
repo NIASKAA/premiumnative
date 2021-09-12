@@ -4,7 +4,7 @@ import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_CONVERGES} from '../../utils/queries'
 import {GET_CONVERGES} from '../../utils/state/actions'
-import {ConvergeCards} from '../../components/AllGradeCards'
+import {ConvergeList} from '../../components/AllGradeCards'
 
 const ConvergeView = () => {
     const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const ConvergeView = () => {
         <>
             <Content>
                 {loadingConverge && <Spinner/>}
-                {!loadingConverge && !loading && <ConvergeCards converges={AllConverge}/>}
+                {!loadingConverge && !loading && <ConvergeList converges={AllConverge}/>}
             </Content>
         </>
     )

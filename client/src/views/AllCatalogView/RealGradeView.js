@@ -4,7 +4,7 @@ import {useQuery} from '@apollo/client'
 import {Content, Spinner} from 'native-base'
 import {GET_ALL_RG} from '../../utils/queries'
 import {GET_RGS} from '../../utils/state/actions'
-import {RealGradeCards} from '../../components/AllGradeCards'
+import {RealGradeList} from '../../components/AllGradeCards'
 
 const RealGradeView = () => {
     const dispatch = useDispatch()
@@ -36,7 +36,7 @@ const RealGradeView = () => {
     return (
         <>
             <Content>
-                {!loadRealGrades && !loading && <RealGradeCards realGrades={AllRealGrade}/>}
+                {!loadRealGrades && !loading && <RealGradeList realGrades={AllRealGrade}/>}
             </Content>
         </>
     )

@@ -4,6 +4,7 @@ import {useQuery} from '@apollo/client'
 import {Content, Spinner} from 'native-base'
 import {GET_ALL_HG} from '../../utils/queries'
 import {GET_HGS} from '../../utils/state/actions'
+import {HighGradeList} from '../../components/AllGradeCards/'
 
 const HighGradeView = () => {
     const dispatch = useDispatch()
@@ -34,7 +35,8 @@ const HighGradeView = () => {
     return (
         <>
             <Content>
-                {!loadHighGrades && !loading && <HighGradeCards highGrades={AllHighGrade}/> }
+                {loadHighGrades && <Spinner/>}
+                {!loadHighGrades && !loading && <HighGradeList highGrades={AllHighGrade}/> }
             </Content>
         </>
     )

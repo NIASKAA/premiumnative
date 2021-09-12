@@ -4,7 +4,7 @@ import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_SD} from '../../utils/queries'
 import {GET_SDS} from '../../utils/state/actions'
-import {SDGradeCards} from '../../components/AllGradeCards'
+import {SDGradeList} from '../../components/AllGradeCards'
 
 const SDGradeView = () => {
     const dispatch = useDispatch()
@@ -37,7 +37,7 @@ const SDGradeView = () => {
         <>
             <Content>
                 {loadSDGrade && <Spinner/>}
-                {!loadSDGrade && !loading && <SDGradeCards SDGrades={AllSDGrade}/>}
+                {!loadSDGrade && !loading && <SDGradeList SDGrades={AllSDGrade}/>}
             </Content>
         </>
     )
