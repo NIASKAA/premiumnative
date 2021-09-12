@@ -29,7 +29,7 @@ const ConvergeView = () => {
         setTimeout(() => {
           setLoadingConverge(false);
         }, 3000);
-    });
+    }, [loadingConverge]);
 
     if(loading) return <Spinner/>
     return (

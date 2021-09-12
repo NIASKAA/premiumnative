@@ -16,6 +16,18 @@ const HighGradeCards = ({highGrade}) => {
         highGradeWish: 'No Converges'
     });
 
+    const saveToList = async () => {
+        try {
+            const response = await saveHighGrade({
+                variables: {
+                    name: highGrade.gunplaName
+                }
+            })
+            setProfileData({...ProfileData, gotHighGrades: response})
+        } catch (error) {
+            console.log(error)
+        }
+    }
   
     const saveToWishlist = async () => {
         try {

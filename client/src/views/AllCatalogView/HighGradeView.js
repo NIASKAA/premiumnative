@@ -29,7 +29,7 @@ const HighGradeView = () => {
         setTimeout(() => {
             setLoadHighGrades(false);
         }, 3000);
-    });
+    }, [loadHighGrades]);
 
     if(loading) return <Spinner/>
     return (

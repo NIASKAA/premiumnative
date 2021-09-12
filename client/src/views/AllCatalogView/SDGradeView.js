@@ -28,8 +28,8 @@ const SDGradeView = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoadSDGrade(false)
-        })
-    }, 3000)
+        }, 3000)
+    }, [loadSDGrade])
 
     if(loading) return <Spinner/>
 

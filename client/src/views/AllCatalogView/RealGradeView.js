@@ -29,7 +29,7 @@ const RealGradeView = () => {
         setTimeout(() => {
             setLoadRealGrades(false);
         }, 3000);
-    });
+    }, [loadRealGrades]);
 
     if(loading) return <Spinner/>
 

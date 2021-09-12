@@ -29,7 +29,7 @@ const MasterGradeView = () => {
         setTimeout(() => {
             setLoadMasterGrade(false)
         }, 3000)
-    })
+    }, [loadMasterGrade])
 
     if(loading) return <Spinner/>
     return (

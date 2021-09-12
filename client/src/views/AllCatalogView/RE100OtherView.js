@@ -29,8 +29,8 @@ const RE100OtherView = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoadingOther(false);
-        }, 3000)
-    });
+        }, 2000)
+    }, [loadingOther]);
 
     if(loading) return <Spinner/>
     return (

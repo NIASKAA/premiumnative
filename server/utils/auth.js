@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const secret = 'premiumBandai';
-const expiration = '2h';
+const expiration = '1h';
 
 module.exports = {
   authMiddleware: function ({req}) {

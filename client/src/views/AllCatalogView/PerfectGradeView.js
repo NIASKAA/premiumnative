@@ -28,8 +28,8 @@ const PerfectGradeView = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoadPerfectGrades(false)
-        }, 1000)
-    })
+        }, 2000)
+    }, [loadPerfectGrades])
 
     if(loading) return <Spinner/>
     
