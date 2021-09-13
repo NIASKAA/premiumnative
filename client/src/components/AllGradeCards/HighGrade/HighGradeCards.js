@@ -44,7 +44,7 @@ const HighGradeCards = ({highGrade}) => {
     }
 
     return (
-        <Card highGrade={highGrade} key={highGrade.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: highGrade.image}} style={styles.grades}/>
             </CardItem>

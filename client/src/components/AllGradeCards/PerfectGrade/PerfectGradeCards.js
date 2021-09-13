@@ -43,7 +43,7 @@ const PerfectGradeCards = ({perfectGrade}) => {
     }
     
     return (
-        <Card perfectGrade={perfectGrade} key={perfectGrade.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: perfectGrade.image}} style={styles.grades}/>
             </CardItem>

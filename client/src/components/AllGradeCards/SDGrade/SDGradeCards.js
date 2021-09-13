@@ -42,7 +42,7 @@ const SDGradeCards = ({SDGrade}) => {
     }
 
     return (
-        <Card SDGrade={SDGrade} key={SDGrade.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: SDGrade.image}} style={styles.grades}/>
             </CardItem>

@@ -44,7 +44,7 @@ const ConvergeCards = ({converge}) => {
     }
 
     return (
-        <Card converge={converge} key={converge.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: converge.image}} style={styles.grades}/>
             </CardItem>

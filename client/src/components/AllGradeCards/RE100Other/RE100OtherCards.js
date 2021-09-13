@@ -44,7 +44,7 @@ const RE100OtherCards = ({re100Other}) => {
     }
 
     return (
-        <Card re100Other={re100Other} key={re100Other.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: re100Other.image}} style={styles.grades}/>
             </CardItem>

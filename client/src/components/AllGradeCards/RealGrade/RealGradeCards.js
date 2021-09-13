@@ -42,7 +42,7 @@ const RealGradeCards = ({realGrade}) => {
     }
     
     return (
-        <Card realGrade={realGrade} key={realGrade.id}>
+        <Card>
             <CardItem cardBody>
                 <FastImage source={{uri: realGrade.image}} style={styles.grades}/>
             </CardItem>
