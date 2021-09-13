@@ -1,6 +1,6 @@
 import React from 'react'
-import {TouchableOpacity, StyleSheet} from 'react-native'
-import {Text, Button, Content, List, ListItem, View, Right} from 'native-base';
+import {StyleSheet, TouchableOpacity} from 'react-native'
+import {Text, Button, Content, List, ListItem, View} from 'native-base';
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomNavigation from '../components/Footer'
@@ -21,9 +21,9 @@ const SettingView = () => {
             <Content>
                 <List>
                     <ListItem>
-                        <TouchableOpacity onPress={() => navigation.navigate('FAQ')}>
+                        <TouchableOpacity onPressOut={() => navigation.navigate('FAQ')}>
                             <View style={styles.view}>
-                                <Text>FAQ</Text>
+                                <Text style={styles.view}>FAQ</Text>
                                 <Icon name="arrow-forward-ios" style={styles.icons}/>
                             </View>
                         </TouchableOpacity>
@@ -73,10 +73,13 @@ const SettingView = () => {
 
 const styles = StyleSheet.create({
     view: {
-        justifyContent: 'space-between'
+        justifyContent: 'center',
+        top: 2
     },
     icons: {
-        left: 350
+        left: 350,
+        bottom: 15,
+        justifyContent: 'center'
     }
 })
 
