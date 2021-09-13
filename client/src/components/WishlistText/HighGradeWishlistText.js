@@ -1,19 +1,35 @@
 import React from 'react'
-import {TouchableOpacity} from 'react-native'
+import {TouchableHighlight, View} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
 import {Text, ListItem} from 'native-base'
+import {DELETE_HIGHGRADE_WISHLIST} from '../../utils/mutations'
 
 
 const HighGradeWishlistText = ({highGrades}) => {
     const navigation = useNavigation();
+    const [deleteHighGradeWishlist] = useMutation(DELETE_HIGHGRADE_WISHLIST)
 
+    const deleteItem = (id) => {
+         try {
+             deleteHighGradeWishlist({
+                 variables: {
+                     highGradeID: id
+                 }
+             })
+         } catch (error) {
+             console.log(error)
+         } 
+    }
+    
     return (
         <>
             {highGrades.map((highGrade) => (
                 <ListItem highGrade={highGrade} key={highGrade.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', highGrade)}>
-                        <Text>{highGrade.gunplaName}</Text>
-                    </TouchableOpacity>
+                    <TouchableHighlight onPress={() => navigation.navigate('MoreInfoView', highGrade)}>
+                        <View>
+                            <Text>{highGrade.gunplaName}</Text>
+                        </View>
+                    </TouchableHighlight>
                 </ListItem>
             ))}
         </>

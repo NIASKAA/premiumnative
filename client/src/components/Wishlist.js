@@ -8,7 +8,7 @@ import {
     GET_PERFECTGRADE_WISH,
     GET_SDGRADE_WISH,
     GET_OTHER_WISH} from '../utils/queries'
-import {List, ListItem, Text, Separator} from 'native-base'
+import {List, Text, Separator} from 'native-base'
 import {HighGradeWishlistText, RealGradeWishlistText, MasterGradeWishlistText, ConvergeWishlist, RE100OtherWishlist, PerfectGradeWishlist, SDGradeWishlist} from './WishlistText'
 
 const Wishlist = () => {
