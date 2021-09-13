@@ -2,9 +2,10 @@ import React, {useState} from 'react'
 import {useMutation} from '@apollo/client'
 import {SAVE_HIGHGRADE} from '../../../utils/mutations'
 import {HIGHGRADE_WISHLIST} from '../../../utils/mutations'
-import {StyleSheet} from 'react-native'
+import {StyleSheet, TouchableOpacity} from 'react-native'
 import FastImage from 'react-native-fast-image'
-import {Card, CardItem, Text, Body, Button} from 'native-base'
+import {Card, CardItem, Text, Body} from 'native-base'
+import Icon from 'react-native-vector-icons/Entypo'
 
  
 const HighGradeCards = ({highGrade}) => {
@@ -16,6 +17,8 @@ const HighGradeCards = ({highGrade}) => {
         highGradeWish: 'No Converges'
     });
 
+    const [saved, setSaved] = useState(false)
+
     const saveToList = async () => {
         try {
             const response = await saveHighGrade({
@@ -24,6 +27,7 @@ const HighGradeCards = ({highGrade}) => {
                 }
             })
             setProfileData({...ProfileData, gotHighGrades: response})
+            setSaved(true)
         } catch (error) {
             console.log(error)
         }
@@ -54,7 +58,12 @@ const HighGradeCards = ({highGrade}) => {
                     <Text>{highGrade.series}</Text>
                     <Text>{highGrade.releaseDate}</Text>
                     <Text>{highGrade.price}</Text>
-                    <Button onPress={saveToWishlist}><Text>Save to Wishlist</Text></Button>
+                    <TouchableOpacity onPress={saveToWishlist}>
+                        <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={saveToList}>
+                        <Icon name={saved ? 'star' : 'star-outlined'} size={28} style={styles.likedWishlist}/>
+                    </TouchableOpacity>
                 </Body>
             </CardItem>
         </Card>
@@ -72,7 +81,15 @@ const styles= StyleSheet.create({
         left: '92%', 
         textAlign: 'right',
         flex: 1
+    },
+    likedSaveIcon: {
+        position: 'absolute',
+        bottom: -2,
+        left: '93%',
+        textAlign: 'right',
+        flex: 1
     }
+   
 })
 
 export default HighGradeCards

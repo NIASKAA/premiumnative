@@ -1,13 +1,16 @@
 import React from 'react'
-import {Text, ListItem, Pressable} from 'native-base'
+import {TouchableOpacity} from 'react-native'
+import {Text, ListItem} from 'native-base'
 
 const HighGradeListText = ({highGrades}) => {
     return (
         <>
             {highGrades.map((highGrade) => (
-                <ListItem highGrade={highGrade} key={highGrade.id}>
-                    <Text>{highGrade.gunplaName}</Text>
-                </ListItem>
+                <TouchableOpacity>
+                    <ListItem highGrade={highGrade} key={highGrade.id}>
+                        <Text>{highGrade.gunplaName}</Text>
+                    </ListItem>
+                </TouchableOpacity>
             ))}
         </>
     )

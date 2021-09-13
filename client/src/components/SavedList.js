@@ -9,7 +9,7 @@ import {
     GET_SAVE_PERFECTGRADE, 
     GET_SAVE_SDGRADE, 
     GET_SAVE_OTHER} from '../utils/queries'
-import HighGradeListText from './SavedListText'
+import {HighGradeListText} from './SavedListText'
 
 const SavedList = () => {
     const {loading: loadHigh, data: highData} = useQuery(GET_SAVE_HIGHGRADE)
@@ -27,9 +27,7 @@ const SavedList = () => {
                 <ListItem itemDivider>
                     <Text>HG</Text>
                 </ListItem>
-                <ListItem>
-                    {loadHighGrade && !loadHigh && <HighGradeListText highGrades={loadHighGrade}/>}
-                </ListItem>
+                {loadHighGrade && !loadHigh && <HighGradeListText highGrades={loadHighGrade}/>}
                 <ListItem itemDivider>
                     <Text>RG</Text>
                 </ListItem>

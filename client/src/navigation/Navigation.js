@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView} from '../views'
+import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView,  MoreInfoView} from '../views'
 import {HighGradeView, RealGradeView, RE100OtherView, MasterGradeView, PerfectGradeView, SDGradeView, ConvergeView} from '../views/AllCatalogView'
 
 export default function Navigation() {
@@ -99,6 +99,12 @@ function RootNavigator() {
               name="Converges"
               component={ConvergeView}
               options={{title: 'Converges'}}
+            />
+
+            <Stack.Screen
+              name="MoreInfoView"
+              component={MoreInfoView}
+              options={{title: 'More-Info'}}
             />
       </Stack.Navigator>
     )
