@@ -40,7 +40,9 @@ const FAQView = () => {
 
 const styles = StyleSheet.create({
     title: {
-        margin: 10
+        margin: 10,
+        textDecorationLine: 'underline',
+        fontWeight: 'bold'
     },
     paragraph: {
         margin: 10

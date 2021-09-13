@@ -61,7 +61,7 @@ const SettingView = () => {
                         </TouchableOpacity>
                     </ListItem>
                 </List>
-                <Button onPress={() => {logout()}}>
+                <Button onPress={() => {logout()}} style={styles.logout}>
                     <Text>Log Out</Text>
                 </Button>
             </Content>
@@ -80,6 +80,13 @@ const styles = StyleSheet.create({
         left: 350,
         bottom: 15,
         justifyContent: 'center'
+    },
+    logout: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft:'auto',
+        marginRight:'auto',
+        marginTop: 30
     }
 })
 
