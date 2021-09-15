@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
 import {SafeAreaView, StyleSheet} from 'react-native'
 import {useQuery} from "@apollo/client"
 import {
@@ -13,12 +12,8 @@ import {
 import {List, Text, Separator, Content} from 'native-base'
 import {HighGradeWishlistText, RealGradeWishlistText, MasterGradeWishlistText, ConvergeWishlist, RE100OtherWishlist, PerfectGradeWishlist, SDGradeWishlist} from './WishlistText'
 import {useIsFocused} from '@react-navigation/native'
-import {GET_HG_WISH} from '../utils/state/actions'
 
 const Wishlist = () => {
-    const isFocused = useIsFocused();
-    const dispatch = useDispatch()
-    const state = useSelector((state) => state)
     const {loading: loadRealWish, data: realWishData} = useQuery(GET_REALGRADE_WISH)
     const {loading: loadMasterWish, data: masterWishData} = useQuery(GET_MASTERGRADE_WISH)
     const {loading: loadPerfectGradeWish, data: perfectGradeWishData} = useQuery(GET_PERFECTGRADE_WISH)
@@ -31,26 +26,17 @@ const Wishlist = () => {
     const [loadPerfectGradeList, setLoadPerfectGradeList] = useState(undefined)
     const [loadSDList, setLoadSDList] = useState(undefined)
     const [loadOtherList, setLoadOtherList] = useState(undefined)
-    const {loading, data} = useQuery(GET_HIGHGRADE_WISH)
-    const [loadHighList, setLoadHighList] = useState(true)
-    const [AllHighGrade, setAllHighGrade] = useState(() => [])
-    let {getHGWish} = state
+    const {loading, data, refetch} = useQuery(GET_HIGHGRADE_WISH)
+    const [loadHighList, setLoadHighList] = useState(null)
 
     useEffect(() => {
-        if(isFocused) {
-            if(!loading && data) {
-                dispatch({type: GET_HG_WISH, payload: data.getHGWish})
-                setAllHighGrade(data.getUserHighWishlist.highGradeWish)
-                console.log(data.getUserHighWishlist.highGradeWish)
-            }
+        if(!loadHighList && data) {
+        setLoadHighList(data.getUserHighWishlist.highGradeWish)
+        } else {
+        setLoadHighList(data.getUserHighWishlist.highGradeWish)
         }
-    }, [loading , data])
-
-    useEffect(() => {
-        setTimeout(() => {
-            setLoadHighList(true);
-        }, 3000);
-    }, [loading]);
+        refetch();
+    }, [loading, data])
 
     useEffect(() => {
         if(!loadConvergeList && convergeWishData) {
@@ -96,7 +82,7 @@ const Wishlist = () => {
                     <Separator bordered>
                         <Text>High Grades</Text>
                     </Separator>
-                    {loadHighList && !loading  && <HighGradeWishlistText highGrades={AllHighGrade}/>}
+                    {loadHighList && !loading && <HighGradeWishlistText highGrades={loadHighList}/>}
                     <Separator bordered>
                         <Text>Real Grades</Text>
                     </Separator>
