@@ -8,7 +8,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 const SettingView = () => {
     const navigation = useNavigation()
-    const logout = () => {
+    const logout = async () => {
         AsyncStorage
         .removeItem('token')
         .then(() => {
@@ -45,7 +45,7 @@ const SettingView = () => {
                         </TouchableOpacity>
                     </ListItem>
                     <ListItem>
-                        <TouchableOpacity onPress={() => navigation.navigate('Feedback')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Privacy')}>
                             <View style={styles.view}>
                                 <Text>Privacy Policy</Text>
                                 <Icon name="arrow-forward-ios" style={styles.icons}/>

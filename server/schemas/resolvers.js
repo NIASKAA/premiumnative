@@ -1,4 +1,4 @@
-const {AuthenticationError} = require('apollo-server')
+const {AuthenticationError} = require('apollo-server-express')
 const {HighGrade, RealGrade, MasterGrade, PerfectGrade, Converge, SDGrade, ProfileData, RE100} = require('../models')
 const {signToken} = require('../utils/auth')
 

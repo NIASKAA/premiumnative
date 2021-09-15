@@ -1,4 +1,4 @@
-import {GET_CONVERGES, GET_HGS, GET_RGS, GET_MGS, GET_PGS, GET_SDS, GET_OTHERS} from './actions'
+import {GET_CONVERGES, GET_HGS, GET_RGS, GET_MGS, GET_PGS, GET_SDS, GET_OTHERS, GET_HG_WISH} from './actions'
 
 export const reducers = (state, action) => {
     switch (action.type) {
@@ -41,6 +41,11 @@ export const reducers = (state, action) => {
             return {
                 ...state,
                 getOther: action.payload
+            }
+        case GET_HG_WISH: 
+            return {
+                ...state,
+                getHGWish: action.payload
             }
         default: 
             return state;

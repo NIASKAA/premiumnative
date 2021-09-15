@@ -9,9 +9,9 @@ const HighGradeListText = ({highGrades}) => {
     return (
         <>
             {highGrades.map((highGrade) => (
-                <ListItem highGrade={highGrade} key={highGrade.id}>
+                <ListItem highGrade={highGrade}>
                     <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', highGrade)}>
-                        <Text>{highGrade.gunplaName}</Text>
+                        <Text key={highGrade.id}>{highGrade.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>
             ))}

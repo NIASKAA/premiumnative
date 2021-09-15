@@ -1,4 +1,4 @@
-const {gql} = require('apollo-server')
+const {gql} = require('apollo-server-express')
 
 const typeDefs = gql`
     type ProfileData {
@@ -97,7 +97,7 @@ const typeDefs = gql`
         getSD: [SDGrade]
         getConverges: [Converge]
         getOthers: [RE100]
-        user: [ProfileData]
+        user: ProfileData
         getUserConverge: ProfileData
         getUserHighGrade: ProfileData
         getUserRealGrade: ProfileData

@@ -5,3 +5,4 @@ export const GET_MGS = "GET_MGS";
 export const GET_PGS = "GET_PGS";
 export const GET_SDS = "GET_SDS";
 export const GET_OTHERS = "GET_OTHERS";
+export const GET_HG_WISH = "GET_HG_WISH";

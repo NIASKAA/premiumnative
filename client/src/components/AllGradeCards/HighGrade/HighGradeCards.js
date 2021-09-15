@@ -1,24 +1,24 @@
-import React, {useState} from 'react'
-import {useMutation} from '@apollo/client'
+import React, {useState, useEffect} from 'react'
+import {useMutation, useQuery} from '@apollo/client'
 import {SAVE_HIGHGRADE} from '../../../utils/mutations'
 import {HIGHGRADE_WISHLIST} from '../../../utils/mutations'
+import {GET_HIGHGRADE_WISH} from '../../../utils/queries'
 import {StyleSheet, TouchableOpacity} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {Card, CardItem, Text, Body} from 'native-base'
 import Icon from 'react-native-vector-icons/Entypo'
-
  
 const HighGradeCards = ({highGrade}) => {
     const [saveHighGrade] = useMutation(SAVE_HIGHGRADE)
     const [highGradeWishlist] = useMutation(HIGHGRADE_WISHLIST)
+    const [saved, setSaved] = useState(false)
     const [ProfileData, setProfileData] = useState({
         email: 'No email',
         username: 'No username',
-        highGradeWish: 'No Converges'
+        gotConverges: "No Converges",
+        convergeWish: 'No Converges'
     });
-
-    const [saved, setSaved] = useState(false)
-
+    
     const saveToList = async () => {
         try {
             const response = await saveHighGrade({
@@ -26,13 +26,13 @@ const HighGradeCards = ({highGrade}) => {
                     name: highGrade.gunplaName
                 }
             })
-            setProfileData({...ProfileData, gotHighGrades: response})
+            setProfileData({gotHighGrades: response})
             setSaved(true)
         } catch (error) {
             console.log(error)
         }
     }
-  
+    
     const saveToWishlist = async () => {
         try {
             const response = await highGradeWishlist({
@@ -40,8 +40,8 @@ const HighGradeCards = ({highGrade}) => {
                     name: highGrade.gunplaName
                 }
             })
-            console.log(response)
-            setProfileData({...ProfileData, highGradeWish: response})
+            setProfileData({highGradeWish: response})
+            console.log(response.data.highGradeWishlist.highGradeWish)
         } catch (error) {
             console.log(error)
         }

@@ -5,6 +5,7 @@ import {Content, Spinner} from 'native-base'
 import {GET_ALL_HG} from '../../utils/queries'
 import {GET_HGS} from '../../utils/state/actions'
 import {HighGradeList} from '../../components/AllGradeCards/'
+import BottomNavigation from '../../components/Footer'
 
 const HighGradeView = () => {
     const dispatch = useDispatch()
@@ -23,6 +24,7 @@ const HighGradeView = () => {
                 setAllHighGrade(getHG)
             }
         }
+        
     }, [loading, data])
 
     useEffect(() => {
@@ -38,6 +40,7 @@ const HighGradeView = () => {
                 {loadHighGrades && <Spinner/>}
                 {!loadHighGrades && !loading && <HighGradeList highGrades={AllHighGrade}/> }
             </Content>
+            <BottomNavigation/>
         </>
     )
 }

@@ -3,9 +3,20 @@ import {TouchableOpacity, StyleSheet, ImageBackground, Image} from 'react-native
 import { useNavigation } from '@react-navigation/native';
 import BottomNavigation from '../components/Footer'
 import {Container, Text, Header, Content, Title} from 'native-base'
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CatalogView = () => {
     const navigation = useNavigation()
+
+    const isLoggedIn = async () => {
+        const checkForToken = await AsyncStorage.getItem('token')
+        if(checkForToken === null) {
+            navigation.navigate('Login')
+        } else return
+    }
+
+    isLoggedIn()
+    
     return (
         <>
             <Container>

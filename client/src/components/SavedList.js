@@ -83,7 +83,7 @@ const SavedList = () => {
                 </Separator>
                 {loadHighGrade && !loadHigh && <HighGradeListText highGrades={loadHighGrade}/>}
                 <Separator bordered>
-                    <Text>RG</Text>
+                    <Text>Real Grades</Text>
                 </Separator>
                 {loadRealGrade && !loadReal && <RealGradeListText realGrades={loadRealGrade}/>} 
                 <Separator bordered>
@@ -91,19 +91,19 @@ const SavedList = () => {
                 </Separator>
                 {loadOtherGrade && !loadOther && <RE100OtherListText re100Others={loadOtherGrade}/>}
                 <Separator bordered>
-                    <Text>MG</Text>
+                    <Text>Master Grades</Text>
                 </Separator>
                 {loadMasterGrade && !loadMaster && <MasterGradeListText masterGrades={loadMasterGrade}/>}
                 <Separator bordered>
-                    <Text>PG</Text>
+                    <Text>Perfect Grades</Text>
                 </Separator>
                 {loadPerfectGrade && !loadPerfect && <PerfectGradeListText perfectGrades={loadPerfectGrade}/>}
                 <Separator bordered>
-                    <Text>SD</Text>
+                    <Text>SD Grades</Text>
                 </Separator>
                 {loadSDGrade && !loadSD && <SDGradeListText SDGrades={loadSDGrade}/>}
                 <Separator bordered>
-                    <Text>Converge</Text>
+                    <Text>Converges</Text>
                 </Separator>
                 {loadConverge && !loading && <ConvergeListText converges={loadConverge}/>}
             </List>

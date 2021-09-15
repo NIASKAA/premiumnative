@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import {RefreshControl, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
 import BottomNavigation from '../components/Footer'
 import {Segment, Header, Title, Text, Button, Content} from 'native-base';
 import {SavedList, Wishlist} from '../components'
@@ -18,12 +19,10 @@ const renderSegment = () => {
     if(activePage === 1) return <SavedList />
     else return <Wishlist />
 } 
+
+
     return (
         <>
-            <Header hasSegment>
-                <Title>Profile</Title>
-            </Header>
-
             <Segment>
                 <Button 
                     first
@@ -42,11 +41,8 @@ const renderSegment = () => {
                         </Text>
                 </Button>
             </Segment>
-            
-            <Content>
-                {renderSegment()}
-            </Content>
-           
+                 {renderSegment()}
+
            <BottomNavigation/>
         </>
     )

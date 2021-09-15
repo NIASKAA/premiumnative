@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView,  MoreInfoView, FAQView, SendFeedbackView} from '../views'
+import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView,  MoreInfoView, FAQView, SendFeedbackView, PrivacyView} from '../views'
 import {HighGradeView, RealGradeView, RE100OtherView, MasterGradeView, PerfectGradeView, SDGradeView, ConvergeView} from '../views/AllCatalogView'
 
 export default function Navigation() {
@@ -50,7 +50,6 @@ function RootNavigator() {
             <Stack.Screen
               name="Profile"
               component={ProfileView}
-              options={{headerShown: false}}
             />
 
             <Stack.Screen
@@ -117,6 +116,12 @@ function RootNavigator() {
               name="Feedback"
               component={SendFeedbackView}
               options={{title: 'Feedbacks'}}
+            />
+
+             <Stack.Screen
+              name="Privacy"
+              component={PrivacyView}
+              options={{title: 'Privacy'}}
             />
       </Stack.Navigator>
     )
