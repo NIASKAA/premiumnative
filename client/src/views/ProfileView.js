@@ -21,27 +21,28 @@ const ProfileView = () => {
 
     return (
         <>  
-        <Header>
-            <Segment>
-                <Button 
-                    first
-                    active={activePage === 1}
-                    onPress={() => setActivePage(1)}>
-                        <Text>
-                            Owned
-                        </Text>
-                </Button>
-                <Button 
-                    last
-                    active={activePage === 2}
-                    onPress={() => setActivePage(2)}>
-                        <Text>
-                            Wishlist
-                        </Text>
-                </Button>
-            </Segment>
-        </Header>
-                 {renderSegment()}
+            <Header>
+                <Segment>
+                    <Button 
+                        first
+                        active={activePage === 1}
+                        onPress={() => setActivePage(1)}>
+                            <Text>
+                                Owned
+                            </Text>
+                    </Button>
+                    <Button 
+                        last
+                        active={activePage === 2}
+                        onPress={() => setActivePage(2)}>
+                            <Text>
+                                Wishlist
+                            </Text>
+                    </Button>
+                </Segment>
+            </Header>
+            
+            {renderSegment()}
 
            <BottomNavigation/>
         </>

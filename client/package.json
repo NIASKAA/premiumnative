@@ -21,6 +21,7 @@
     "react": "17.0.2",
     "react-native": "^0.65.1",
     "react-native-animatable": "^1.3.3",
+    "react-native-email": "^1.1.0",
     "react-native-fast-image": "^8.3.7",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-keyboard-aware-scroll-view": "github:APSL/react-native-keyboard-aware-scroll-view#pull/501/head",

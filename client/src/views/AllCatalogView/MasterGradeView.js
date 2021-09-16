@@ -10,7 +10,7 @@ const MasterGradeView = () => {
     const dispatch = useDispatch()
     const state = useSelector((state) => state)
     const [loadMasterGrade, setLoadMasterGrade] = useState(true)
-    const {loading, data} = useQuery(GET_ALL_MG)
+    const {loading, data, refetch} = useQuery(GET_ALL_MG)
     let {getMG} = state
     const [AllMasterGrade, setAllMasterGrade] = useState(() => [])
 
@@ -23,6 +23,7 @@ const MasterGradeView = () => {
                 setAllMasterGrade(getMG)
             }
         }
+        refetch()
     }, [loading, data])
 
     useEffect(() => {
@@ -32,9 +33,11 @@ const MasterGradeView = () => {
     }, [loadMasterGrade])
 
     if(loading) return <Spinner/>
+    
     return (
         <>
             <Content>
+                {loadMasterGrade && <Spinner/>}
                 {!loadMasterGrade && !loading && <MasterGradeList masterGrades={AllMasterGrade}/>}
             </Content>
         </>

@@ -67,7 +67,7 @@ const CatalogView = () => {
                     <TouchableOpacity onPress={() => {navigation.navigate('SDGrades')}}>
                         <ImageBackground
                             style={styles.grades}
-                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/sd-legend-bb-musha-godmaru-final-battle-ver_1_kdktoq_uh32e8.jpg'}}
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631770231/sd-legend-bb-musha-victory-gundam-super-steel-ver_1_rbqn7m_hvkgbu.jpg'}}
                         />
                             <Text style={styles.text}>SD Grades</Text>
                     </TouchableOpacity>

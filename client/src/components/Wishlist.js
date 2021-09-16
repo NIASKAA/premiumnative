@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {SafeAreaView, StyleSheet, RefreshControl, ScrollView} from 'react-native'
+import {SafeAreaView, RefreshControl, ScrollView} from 'react-native'
 import {useQuery} from "@apollo/client"
 import {
     GET_HIGHGRADE_WISH,
@@ -82,8 +82,7 @@ const Wishlist = () => {
      }, [loadOtherList, otherWishData])
 
     return (
-    <>  
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1}}>
             <ScrollView
             refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
             }>
@@ -121,20 +120,7 @@ const Wishlist = () => {
                 </Content>
             </ScrollView>
         </SafeAreaView>
-           
-        </>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
-    scrollView: {
-        flex:1
-    }
-})
-
-
 
 export default Wishlist

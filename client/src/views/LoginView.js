@@ -10,7 +10,7 @@ const LoginView = () => {
     const navigation = useNavigation()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [login, {data, error}] = useMutation(LOGIN)
+    const [login, {data, error, loading}] = useMutation(LOGIN)
 
     if(data) {
         AsyncStorage
