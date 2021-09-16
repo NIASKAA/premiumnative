@@ -1,28 +1,27 @@
 import React,{useState, useEffect} from 'react'
-import {RefreshControl, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
 import BottomNavigation from '../components/Footer'
-import {Segment, Header, Title, Text, Button, Content} from 'native-base';
+import {Segment, Header, Text, Button} from 'native-base';
 import {SavedList, Wishlist} from '../components'
 
 const ProfileView = () => {
-const [activePage, setActivePage] = useState(1)
+    const [activePage, setActivePage] = useState(1)
 
-useEffect(() => {
+    useEffect(() => {
+        const renderSegment = () => {
+            if(activePage === 1) return <SavedList />
+            else return <Wishlist />
+        } 
+        renderSegment()
+    }, [activePage])
+
     const renderSegment = () => {
         if(activePage === 1) return <SavedList />
         else return <Wishlist />
     } 
-    renderSegment()
-}, [activePage])
-
-const renderSegment = () => {
-    if(activePage === 1) return <SavedList />
-    else return <Wishlist />
-} 
-
 
     return (
-        <>
+        <>  
+        <Header>
             <Segment>
                 <Button 
                     first
@@ -41,6 +40,7 @@ const renderSegment = () => {
                         </Text>
                 </Button>
             </Segment>
+        </Header>
                  {renderSegment()}
 
            <BottomNavigation/>

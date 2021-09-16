@@ -50,6 +50,7 @@ function RootNavigator() {
             <Stack.Screen
               name="Profile"
               component={ProfileView}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
