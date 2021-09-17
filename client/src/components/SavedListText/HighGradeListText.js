@@ -5,7 +5,7 @@ import {Text, ListItem} from 'native-base'
 
 const HighGradeListText = ({highGrades}) => {
     const navigation = useNavigation();
-
+    
     return (
         <>
             {highGrades.map((highGrade) => (

@@ -100,10 +100,10 @@ const styles= StyleSheet.create({
         fontFamily: "Bangers-Regular",
         fontWeight: 'bold',
         fontSize: 30,
-        top: 10, 
-        right: 10,
-        textAlign: 'right',
-        flex: 1
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: 'white',
+        borderWidth: 2,
     },
     convergeText: {
         position: 'absolute',
@@ -111,10 +111,10 @@ const styles= StyleSheet.create({
         fontFamily: "Bangers-Regular",
         fontWeight: 'bold',
         fontSize: 30,
-        top: 10, 
-        right: 10,
-        textAlign: 'right',
-        flex: 1
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderColor: 'black',
+        borderWidth: 2,
     }
 })
 export default CatalogView;

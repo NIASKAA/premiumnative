@@ -4,7 +4,9 @@ import FastImage from 'react-native-fast-image'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
 
 const MoreInfoView = ({navigation, route}) => {
-    const {gunplaName, image, releaseDate, price, series} = route.params
+    const {gunplaName, image, releaseDate, price, series, _id} = route.params
+
+    console.log(route.params)
     return (
         <>  
             <Card>

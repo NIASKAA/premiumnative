@@ -56,16 +56,9 @@ const LoginView = () => {
                 <Pressable 
                     onPress={handleFormSubmit}
                     style={styles.loginBtn}
-                >
-                    {loading && <ActivityIndicator />}
-
-                    <Text>Login</Text>
-                    
+                ><Text>Login</Text>
                 </Pressable>
             </Form>
-
-            
-
             <Button 
                 onPress={() => {navigation.navigate('SignUp')}}
                 style={styles.signUpBtn}>
@@ -73,6 +66,8 @@ const LoginView = () => {
                         Don't have an account? Sign up here!
                     </Text>
             </Button>
+            
+            {loading && <ActivityIndicator size="large" />}
         </Content>
     )
 }

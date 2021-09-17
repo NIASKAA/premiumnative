@@ -619,7 +619,7 @@ const resolvers = {
             {
                 new: true
             })
-        }
+        },
     }
 }
 
