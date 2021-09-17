@@ -47,17 +47,9 @@ const SettingView = () => {
                     <ListItem>
                         <TouchableOpacity onPress={() => navigation.navigate('Privacy')}>
                             <View style={styles.view}>
-                                <Text>Privacy Policy</Text>
+                                <Text>About</Text>
                                 <Icon name="arrow-forward-ios" style={styles.icons}/>
                             </View>
-                        </TouchableOpacity>
-                    </ListItem>
-                    <ListItem>
-                        <TouchableOpacity onPress={() => navigation.navigate('Feedback')}>
-                            <View style={styles.view}>
-                                <Text>License</Text>
-                            </View>
-                                <Icon name="arrow-forward-ios" style={styles.icons}/>
                         </TouchableOpacity>
                     </ListItem>
                 </List>

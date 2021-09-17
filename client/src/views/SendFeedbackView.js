@@ -17,17 +17,20 @@ const SendFeedbackView = () => {
     }
 
     return (
-        <Content>
+        <Content style={styles.content}>
             <View>
                 <Text>If you encountered any bugs, please report it here!</Text>
                 <Text>Feedbacks are also welcome here!</Text>
-                <Button onPress={handleEmail} style={styles.mail}>To Mail</Button>
+                <Button onPress={handleEmail} style={styles.mail}><Text>To Mail</Text></Button>
             </View>
         </Content>
     )
 }
 
 const styles = StyleSheet.create({
+    content: {
+        margin: 20
+    },
     mail: {
         justifyContent: 'center',
         alignItems: 'center',

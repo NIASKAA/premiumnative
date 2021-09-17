@@ -91,6 +91,8 @@ const styles= StyleSheet.create({
     grades: {
         width: '100%',
         height: 200,
+        opacity: 0.7,
+        backgroundColor: 'rgba(52, 52, 52, 0.8)'
     },
     text: {
         position: 'absolute',

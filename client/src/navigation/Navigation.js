@@ -122,7 +122,7 @@ function RootNavigator() {
              <Stack.Screen
               name="Privacy"
               component={PrivacyView}
-              options={{title: 'Privacy'}}
+              options={{title: 'About'}}
             />
       </Stack.Navigator>
     )

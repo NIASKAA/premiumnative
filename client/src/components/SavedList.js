@@ -14,19 +14,19 @@ import {HighGradeListText, RealGradeListText, RE100OtherListText, MasterGradeLis
 
 const SavedList = () => {
     const {loading, data, refetch} = useQuery(GET_SAVE_CONVERGE)
-    const {loading: loadHigh, data: highData} = useQuery(GET_SAVE_HIGHGRADE)
-    const {loading: loadReal, data: realData} = useQuery(GET_SAVE_REALGRADE)
-    const {loading: loadMaster, data: masterData} = useQuery(GET_SAVE_MASTERGRADE)
-    const {loading: loadPerfect, data: perfectData} = useQuery(GET_SAVE_PERFECTGRADE)
-    const {loading: loadSD, data: sdData} = useQuery(GET_SAVE_SDGRADE)
-    const {loading: loadOther, data: otherData} = useQuery(GET_SAVE_OTHER)
-    const [loadConverge, setLoadConverge] = useState(undefined)
-    const [loadHighGrade, setLoadHighGrade] = useState(undefined)
-    const [loadRealGrade, setLoadRealGrade] = useState(undefined)
-    const [loadMasterGrade, setLoadMasterGrade] = useState(undefined)
-    const [loadPerfectGrade, setLoadPerfectGrade] = useState(undefined)
-    const [loadSDGrade, setLoadSDGrade] = useState(undefined)
-    const [loadOtherGrade, setLoadOtherGrade] = useState(undefined)
+    const {loading: loadHigh, data: highData, refetch: refetchHigh} = useQuery(GET_SAVE_HIGHGRADE)
+    const {loading: loadReal, data: realData, refetch: refetchReal} = useQuery(GET_SAVE_REALGRADE)
+    const {loading: loadMaster, data: masterData, refetch: refetchMaster} = useQuery(GET_SAVE_MASTERGRADE)
+    const {loading: loadPerfect, data: perfectData, refetch: refetchPerfect} = useQuery(GET_SAVE_PERFECTGRADE)
+    const {loading: loadSD, data: sdData, refetch: refetchSD} = useQuery(GET_SAVE_SDGRADE)
+    const {loading: loadOther, data: otherData, refetch: refetchOther} = useQuery(GET_SAVE_OTHER)
+    const [loadConverge, setLoadConverge] = useState(null)
+    const [loadHighGrade, setLoadHighGrade] = useState(null)
+    const [loadRealGrade, setLoadRealGrade] = useState(null)
+    const [loadMasterGrade, setLoadMasterGrade] = useState(null)
+    const [loadPerfectGrade, setLoadPerfectGrade] = useState(null)
+    const [loadSDGrade, setLoadSDGrade] = useState(null)
+    const [loadOtherGrade, setLoadOtherGrade] = useState(null)
     const [refreshing, setRefreshing] = React.useState(false)
 
     const wait = (timeout) => {
@@ -41,51 +41,66 @@ const SavedList = () => {
     useEffect(() => {
         if(!loadHigh && highData) {
             setLoadHighGrade(highData.getUserHighGrade.gotHighGrades)
+        } else {
+            return
         }
-        refetch()
+        refetchHigh();
     }, [loadHigh, highData])
 
     useEffect(() => {
         if(!loading && data) {
             setLoadConverge(data.getUserConverge.gotConverges)
+        } else {
+            return
         }
+        console.log(data)
+        refetch();
     }, [loading, data])
 
     useEffect(() => {
         if(!loadReal && realData) {
             setLoadRealGrade(realData.getUserRealGrade.gotRealGrades)
+        } else {
+            return
         }
+        refetchReal();
     }, [loadReal, realData])
 
     useEffect(() => {
         if(!loadMaster && masterData) {
             setLoadMasterGrade(masterData.getUserMasterGrade.gotMasterGrades)
+        } else {
+            return
         }
+        refetchMaster();
     }, [loadMaster, masterData])
 
     useEffect(() => {
         if(!loadPerfect && perfectData) {
             setLoadPerfectGrade(perfectData.getUserPerfectGrade.gotPerfectGrades)
+        } else {
+            return
         }
+        refetchPerfect();
     }, [loadPerfect, perfectData])
 
     useEffect(() => {
         if(!loadSDGrade && sdData) {
             setLoadSDGrade(sdData.getUserSDGrade.gotSDGrades)
+        } else {
+            return
         }
+        refetchSD();
     }, [loadSD, sdData])
 
     useEffect(() => {
         if(!loadOther && otherData) {
             setLoadOtherGrade(otherData.getUserOther.gotRE100s)
+        } else {
+            return
         }
+        refetchOther();
     }, [loadOther, otherData])
-
-    useEffect(() => {
-        if(!loading && data) {
-            setLoadConverge(data.getUserConverge.gotConverges)
-        }
-    }, [loading, data])
 
     return (
         <SafeAreaView style={{flex: 1}}>

@@ -13,20 +13,20 @@ import {List, Text, Separator, Content} from 'native-base'
 import {HighGradeWishlistText, RealGradeWishlistText, MasterGradeWishlistText, ConvergeWishlist, RE100OtherWishlist, PerfectGradeWishlist, SDGradeWishlist} from './WishlistText'
 
 const Wishlist = () => {
-    const {loading: loadRealWish, data: realWishData} = useQuery(GET_REALGRADE_WISH)
-    const {loading: loadMasterWish, data: masterWishData} = useQuery(GET_MASTERGRADE_WISH)
-    const {loading: loadPerfectGradeWish, data: perfectGradeWishData} = useQuery(GET_PERFECTGRADE_WISH)
-    const {loading: loadSDWish, data: SDWishData} = useQuery(GET_SDGRADE_WISH)
-    const {loading: loadOtherWish, data: otherWishData} = useQuery(GET_OTHER_WISH)
-    const {loading: loadConvergeWish, data: convergeWishData} = useQuery(GET_CONVERGE_WISH)
+    const {loading, data, refetch} = useQuery(GET_HIGHGRADE_WISH)
+    const {loading: loadRealWish, data: realWishData, refetch: refetchReal} = useQuery(GET_REALGRADE_WISH)
+    const {loading: loadMasterWish, data: masterWishData, refetch: refetchMaster} = useQuery(GET_MASTERGRADE_WISH)
+    const {loading: loadPerfectGradeWish, data: perfectGradeWishData, refetch: refetchPerfect} = useQuery(GET_PERFECTGRADE_WISH)
+    const {loading: loadSDWish, data: SDWishData, refetch: refetchSD} = useQuery(GET_SDGRADE_WISH)
+    const {loading: loadOtherWish, data: otherWishData, refetch: refetchOther} = useQuery(GET_OTHER_WISH)
+    const {loading: loadConvergeWish, data: convergeWishData, refetch: refetchConverge} = useQuery(GET_CONVERGE_WISH)
     const [loadConvergeList, setLoadConvergeList] = useState(undefined)
     const [loadRealList, setLoadRealList] = useState(undefined)
     const [loadMasterList, setLoadMasterList] = useState(undefined)
     const [loadPerfectGradeList, setLoadPerfectGradeList] = useState(undefined)
     const [loadSDList, setLoadSDList] = useState(undefined)
     const [loadOtherList, setLoadOtherList] = useState(undefined)
-    const {loading, data, refetch} = useQuery(GET_HIGHGRADE_WISH)
-    const [loadHighList, setLoadHighList] = useState(null)
+    const [loadHighList, setLoadHighList] = useState(undefined)
     const [refreshing, setRefreshing] = React.useState(false)
 
     const wait = (timeout) => {
@@ -41,44 +41,50 @@ const Wishlist = () => {
     useEffect(() => {
         if(!loadHighList && data) {
             setLoadHighList(data.getUserHighWishlist.highGradeWish)
-        } 
+        } else return
         refetch();
     }, [loading, data])
 
     useEffect(() => {
         if(!loadConvergeList && convergeWishData) {
             setLoadConvergeList(convergeWishData.getUserConvergeWishlist.convergeWish)
-        }
+        } else return
+        refetchConverge();
     }, [loadConvergeWish, convergeWishData])
 
     useEffect(() => {
         if(!loadRealList && realWishData) {
             setLoadRealList(realWishData.getUserRealWishlist.realGradeWish)
-        }
+        } else return
+        refetchReal();
     }, [loadRealWish, realWishData])
  
      useEffect(() => {
-         if(!loadMasterList && masterWishData) {
-             setLoadMasterList(masterWishData.getUserMasterWishlist.masterGradeWish)
-         }
+        if(!loadMasterList && masterWishData) {
+            setLoadMasterList(masterWishData.getUserMasterWishlist.masterGradeWish)
+        } else return
+        refetchMaster();
      }, [loadMasterList, masterWishData])
  
      useEffect(() => {
-         if(!loadPerfectGradeList && perfectGradeWishData) {
-             setLoadPerfectGradeList(perfectGradeWishData.getUserPerfectWishlist.perfectGradeWish)
-         }
+        if(!loadPerfectGradeList && perfectGradeWishData) {
+            setLoadPerfectGradeList(perfectGradeWishData.getUserPerfectWishlist.perfectGradeWish)
+        } else return
+        refetchPerfect();
      }, [loadPerfectGradeList, perfectGradeWishData])
  
      useEffect(() => {
-         if(!loadSDList && SDWishData) {
-             setLoadSDList(SDWishData.getUserSDWishlist.sdGradeWish)
-         }
+        if(!loadSDList && SDWishData) {
+            setLoadSDList(SDWishData.getUserSDWishlist.sdGradeWish)
+        } else return
+        refetchSD();
      }, [loadSDList, SDWishData])
  
      useEffect(() => {
-         if(!loadOtherList && otherWishData) {
-            setLoadOtherList(otherWishData.getUserOtherWishlist.re100Wish)
-         }
+        if(!loadOtherList && otherWishData) {
+        setLoadOtherList(otherWishData.getUserOtherWishlist.re100Wish)
+        } else return
+        refetchOther();
      }, [loadOtherList, otherWishData])
 
     return (
