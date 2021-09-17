@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Alert, Pressable} from 'react-native';
+import {Alert, Pressabl, ActivityIndicator} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
@@ -11,7 +11,7 @@ const SignupView = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [addUser, {data, error}] = useMutation(ADD_USER)
+    const [addUser, {data, error, loading}] = useMutation(ADD_USER)
 
     if(data) {
         AsyncStorage
@@ -23,6 +23,7 @@ const SignupView = () => {
 
     if(error) {
         Alert.alert('Error. Please try again.')
+        console.log(error)
     }
 
     const handleFormSubmit = () => {
@@ -67,8 +68,10 @@ const SignupView = () => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         marginTop: 30,
-                      }}
-                    ><Text>Sign Up</Text>
+                    }}
+                    >
+                        <Text>Sign Up</Text>
+                        {loading && <ActivityIndicator />}
                 </Pressable>
             </Form>
             <Button

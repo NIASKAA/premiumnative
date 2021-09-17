@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Alert, Pressable} from 'react-native';
+import {Alert, Pressable, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
@@ -21,6 +21,7 @@ const LoginView = () => {
     }
     if(error) {
         Alert.alert('Incorrect email or password')
+        console.log(error)
     }
 
     const handleFormSubmit = () => {
@@ -33,8 +34,8 @@ const LoginView = () => {
     }
 
     return (
-        <Content>
-            <Form>
+        <Content style={styles.content}>
+            <Form style={styles.form}>
                 <Item>
                     <Input 
                         placeholder="Email" 
@@ -54,20 +55,48 @@ const LoginView = () => {
                 </Item>
                 <Pressable 
                     onPress={handleFormSubmit}
-                    style={{ 
-                        height: 50,
-                        borderRadius: 5,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginTop: 30,
-                      }}
-                ><Text>Login</Text></Pressable>
+                    style={styles.loginBtn}
+                >
+                    {loading && <ActivityIndicator />}
+
+                    <Text>Login</Text>
+                    
+                </Pressable>
             </Form>
-            <Button onPress={() => {navigation.navigate('SignUp')}}><Text>
-                Don't have an account? Sign up here!
-            </Text></Button>
+
+            
+
+            <Button 
+                onPress={() => {navigation.navigate('SignUp')}}
+                style={styles.signUpBtn}>
+                    <Text>
+                        Don't have an account? Sign up here!
+                    </Text>
+            </Button>
         </Content>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+        flex: 1
+    },
+    form: {
+        marginTop: '40%'
+    },
+    loginBtn: {
+        height: 50,
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 30,
+    },
+    signUpBtn: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        left: 38,
+        borderColor: 'black',
+    }
+})
 
 export default LoginView
