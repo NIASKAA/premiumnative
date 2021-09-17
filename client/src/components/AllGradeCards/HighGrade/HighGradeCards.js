@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import {useMutation, useQuery} from '@apollo/client'
+import React, {useState} from 'react'
+import {useMutation} from '@apollo/client'
 import {SAVE_HIGHGRADE} from '../../../utils/mutations'
 import {HIGHGRADE_WISHLIST} from '../../../utils/mutations'
-import {GET_HIGHGRADE_WISH} from '../../../utils/queries'
-import {StyleSheet, TouchableOpacity} from 'react-native'
+import {StyleSheet, TouchableOpacity, Alert} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {Card, CardItem, Text, Body} from 'native-base'
 import Icon from 'react-native-vector-icons/Entypo'
@@ -18,6 +17,10 @@ const HighGradeCards = ({highGrade}) => {
         gotConverges: "No Converges",
         convergeWish: 'No Converges'
     });
+    const [errors, setErrors] = useState({
+        addToWishlistSuccess: null,
+        addToWishlistFail: null
+    })
     
     const saveToList = async () => {
         try {
@@ -40,11 +43,16 @@ const HighGradeCards = ({highGrade}) => {
                     name: highGrade.gunplaName
                 }
             })
+            setErrors({...errors, addToWishlistSuccess: true})
             setProfileData({highGradeWish: response})
-            console.log(response.data.highGradeWishlist.highGradeWish)
         } catch (error) {
             console.log(error)
+            setErrors({...errors, addToWishlistFail: true})
         }
+    }
+
+    if(errors.addToWishlistSuccess === true) {
+        Alert.alert('Added to Wishlist!')
     }
 
     return (

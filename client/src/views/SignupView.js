@@ -69,9 +69,7 @@ const SignupView = () => {
                         justifyContent: 'center',
                         marginTop: 30,
                     }}
-                    >
-                        <Text>Sign Up</Text>
-                        {loading && <ActivityIndicator />}
+                    ><Text>Sign Up</Text>
                 </Pressable>
             </Form>
             <Button
@@ -83,6 +81,7 @@ const SignupView = () => {
                 }}
                 ><Text>Already have an account? Sign In Here!</Text>
             </Button>
+            {loading && <ActivityIndicator size="large" />}
         </Content>
     )
 }
