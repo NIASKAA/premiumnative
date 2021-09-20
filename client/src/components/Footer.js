@@ -9,19 +9,6 @@ export default function BottomNavigation() {
     FontAwesome.loadFont()
     const navigation = useNavigation();
 
-    const resetProfile = () => {
-        navigation.dispatch(
-            CommonActions.reset({
-                index: 1,
-                routes: [
-                    {name: 'Catalog'},
-                    {
-                        name: 'Profile'
-                    }
-                ]
-            })
-        )
-    }
     return (
         <>
             <Footer>
@@ -30,7 +17,7 @@ export default function BottomNavigation() {
                         <Icon name="list"/>
                         <Text>Catalog</Text>
                     </Button>
-                    <Button onPress={resetProfile}>
+                    <Button onPress={() => navigation.navigate('Profile')}>
                         <Icon name="person" />
                         <Text>User</Text>
                     </Button>

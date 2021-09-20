@@ -19,10 +19,6 @@ const LoginView = () => {
             navigation.navigate('Catalog')
         })
     }
-    if(error) {
-        Alert.alert('Incorrect email or password')
-        console.log(error)
-    }
 
     const handleFormSubmit = () => {
         login({
@@ -66,7 +62,6 @@ const LoginView = () => {
                         Don't have an account? Sign up here!
                     </Text>
             </Button>
-            
             {loading && <ActivityIndicator size="large" />}
         </Content>
     )
