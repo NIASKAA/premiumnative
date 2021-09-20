@@ -8,4 +8,4 @@ export {default as MoreInfoView} from './MoreInfoView'
 export {default as FAQView} from './FAQView'
 export {default as SendFeedbackView} from './SendFeedbackView'
 export {default as PrivacyView} from './PrivacyView'
-export {default as UpdateView} from './UpdateView'
+export {default as UpdateView} from './UpdateView';

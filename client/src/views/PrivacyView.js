@@ -1,6 +1,7 @@
 import React from 'react'
 import {View, Linking, StyleSheet} from 'react-native'
 import {Content, Text, H3, Button} from 'native-base'
+
 const PrivacyView = () => {
     const url = "https://premiumbandaitracker.herokuapp.com"
 
@@ -57,3 +58,4 @@ const styles = StyleSheet.create({
 })
 
 export default PrivacyView
+

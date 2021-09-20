@@ -1,15 +1,18 @@
 import React from 'react'
-import {Content, Text, H5} from 'native-base'
-import {View, StyleSheet} from 'react-native'
+import {StyleSheet, View} from 'react-native'
+import {Content, H3, Text} from 'native-base'
 
 const UpdateView = () => {
+
     return (
-        <Content style={styles.content}>
-            <H5 style={styles.updateTitle}>Version 1.0</H5>
-            <View>
-                <Text style={styles.updateText}>Launch App</Text>
-            </View>
-        </Content>
+        <>
+            <Content style={styles.content}>
+                <H3 style={styles.updateTitle}>Version 1.0</H3>
+                <View>
+                    <Text style={styles.updateText}>Launch App</Text>
+                </View>
+            </Content>
+        </>
     )
 }
 
@@ -26,5 +29,6 @@ const styles = StyleSheet.create({
         margin: 10
     }
 })
+
 
 export default UpdateView

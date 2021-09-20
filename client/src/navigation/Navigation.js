@@ -126,9 +126,8 @@ function RootNavigator() {
             />
 
             <Stack.Screen
-              name="Update"
+              name="Updates"
               component={UpdateView}
-              options={{title: 'Updates Log'}}
             />
       </Stack.Navigator>
     )

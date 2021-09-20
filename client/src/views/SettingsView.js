@@ -37,7 +37,7 @@ const SettingView = () => {
                         </TouchableOpacity>
                     </ListItem>
                     <ListItem>
-                        <TouchableOpacity onPress={() => navigation.navigate('Update')}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Updates')}>
                             <View style={styles.view}>
                                 <Text>Updates</Text>
                                 <Icon name="arrow-forward-ios" style={styles.icons}/>
