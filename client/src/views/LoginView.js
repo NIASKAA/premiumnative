@@ -49,16 +49,18 @@ const LoginView = () => {
                         autoCorrect={false}
                     />
                 </Item>
-                <Pressable 
+                <Button
+                    bordered danger
                     onPress={handleFormSubmit}
                     style={styles.loginBtn}
-                ><Text>Login</Text>
-                </Pressable>
+                ><Text style={styles.text}>Login</Text>
+                </Button>
             </Form>
             <Button 
+                bordered
                 onPress={() => {navigation.navigate('SignUp')}}
                 style={styles.signUpBtn}>
-                    <Text>
+                    <Text style={styles.text}>
                         Don't have an account? Sign up here!
                     </Text>
             </Button>
@@ -80,12 +82,17 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30,
+        left: '80%',
+        marginBottom: 20
     },
     signUpBtn: {
         alignItems: 'center',
         justifyContent: 'center',
         left: 38,
-        borderColor: 'black',
+        borderColor: 'red',
+    },
+    text: {
+        color: 'red'
     }
 })
 
