@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react'
-import {TouchableOpacity, StyleSheet, ImageBackground, Image} from 'react-native'
+import {TouchableOpacity, StyleSheet, Image, View} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import BottomNavigation from '../components/Footer'
-import {Container, Text, Header, Content, Title} from 'native-base'
+import {Text, Header, Content, Title} from 'native-base'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const CatalogView = () => {
@@ -27,68 +27,77 @@ const CatalogView = () => {
 
     return (
         <>
-            <Container>
-                <Header hasSegment>
-                    <Title>Catalog</Title>
-                </Header>
+            <Header hasSegment>
+                <Title>Catalog</Title>
+            </Header>
 
-                <Content>
-                    <TouchableOpacity onPress={() => {navigation.navigate('HighGrades')}}>
+            <Content>
+                <TouchableOpacity onPress={() => {navigation.navigate('HighGrades')}}>
+                    <View style={styles.view}>
                         <Image 
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/hguc-gundam-tr-1-hazenthley-rah-ii_7_asnq0w_ftvyib_djhqyj.jpg'}}
                             style={styles.grades}/>
                             <Text style={styles.text}>High Grades</Text>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('RealGrades')}}>
-                        <ImageBackground
+                <TouchableOpacity onPress={() => {navigation.navigate('RealGrades')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
-                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/rg-wings-of-the-sky-effect_1_wd2mdo_gvhjin_ftnrhz.jpg'}}
-                        />
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/rg-wings-of-the-sky-effect_1_wd2mdo_gvhjin_ftnrhz.jpg'}}/>
                             <Text style={styles.text}>Real Grades</Text>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('RE100Others')}}>
-                        <ImageBackground
+                <TouchableOpacity onPress={() => {navigation.navigate('RE100Others')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
-                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/re-100-vigna-ghina-ii-jupiter-battle-ver_1_cah08v_y2cwge_tpfoqy.jpg'}}
-                        />
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/re-100-vigna-ghina-ii-jupiter-battle-ver_1_cah08v_y2cwge_tpfoqy.jpg'}}/>
                             <Text style={styles.text}>RE/100 & Other</Text>
-                    </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('MasterGrades')}}>
-                        <ImageBackground
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => {navigation.navigate('MasterGrades')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
-                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/mg-maneuver-eclipse-gundam_4_xyhwsi_cwvdw2_idl0g8.jpg'}}
-                        />
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/mg-maneuver-eclipse-gundam_4_xyhwsi_cwvdw2_idl0g8.jpg'}}/>
                             <Text style={styles.text}>Master Grades</Text>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('PerfectGrades')}}>
-                        <ImageBackground
+                <TouchableOpacity onPress={() => {navigation.navigate('PerfectGrades')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319185/96022e48-f9c7-4086-82ab-a49db6aefa97_raaizt.jpg'}}
                         />
                             <Text style={styles.text}>Perfect Grades</Text>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('SDGrades')}}>
-                        <ImageBackground
+                <TouchableOpacity onPress={() => {navigation.navigate('SDGrades')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
-                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631770231/sd-legend-bb-musha-victory-gundam-super-steel-ver_1_rbqn7m_hvkgbu.jpg'}}
-                        />
+                            source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631770231/sd-legend-bb-musha-victory-gundam-super-steel-ver_1_rbqn7m_hvkgbu.jpg'}}/>
                             <Text style={styles.text}>SD Grades</Text>
-                    </TouchableOpacity>
+                    </View>
+                </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => {navigation.navigate('Converges')}}>
-                        <ImageBackground
+                <TouchableOpacity onPress={() => {navigation.navigate('Converges')}}>
+                    <View style={styles.view}>
+                        <Image
                             style={styles.grades}
                             source={{uri: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1631319186/dfd_y53xi7_zid8om.jpg'}}
                         />
                             <Text style={styles.convergeText}>Converges</Text>
-                    </TouchableOpacity>
-                </Content>
-            </Container>
+                    </View>
+                </TouchableOpacity>
+            </Content>
 
             <BottomNavigation/>
         </>
@@ -96,21 +105,26 @@ const CatalogView = () => {
 }
 
 const styles= StyleSheet.create({
+    view: {
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
     grades: {
         width: '100%',
         height: 200,
         opacity: 0.7,
-        backgroundColor: 'rgba(52, 52, 52, 0.8)'
+        backgroundColor: 'rgba(52, 52, 52, 0.8)',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     text: {
         position: 'absolute',
         color: 'white',
         fontFamily: "Bangers-Regular",
         fontWeight: 'bold',
-        fontSize: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
+        fontSize: 40,
         borderColor: 'white',
+        textAlign: 'center',
         borderWidth: 2,
     },
     convergeText: {
@@ -118,10 +132,9 @@ const styles= StyleSheet.create({
         color: 'black',
         fontFamily: "Bangers-Regular",
         fontWeight: 'bold',
-        fontSize: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
+        fontSize: 40,
         borderColor: 'black',
+        textAlign: 'center',
         borderWidth: 2,
     }
 })
