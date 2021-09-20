@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
 import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
@@ -31,15 +32,33 @@ const ConvergeView = () => {
         }, 3000);
     }, [loadingConverge]);
 
-    if(loading) return <Spinner/>
+    if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
+
     return (
         <>
-            <Content>
-                {loadingConverge && <Spinner/>}
+            <Content style={styles.content}>
+              <View style={styles.view}>
+                {loadingConverge && <Spinner color="#a9a9a9" style={styles.spinner}/>}
                 {!loadingConverge && !loading && <ConvergeList converges={AllConverge}/>}
+              </View>
             </Content>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+  content: {
+    flex: 1,
+  },
+  view: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  spinner: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '55%'
+  }
+})
 
 export default ConvergeView

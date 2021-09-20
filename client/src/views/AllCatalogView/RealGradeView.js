@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from 'react-redux'
 import {useQuery} from '@apollo/client'
 import {Content, Spinner} from 'native-base'
@@ -31,15 +32,33 @@ const RealGradeView = () => {
         }, 3000);
     }, [loadRealGrades]);
 
-    if(loading) return <Spinner/>
+    if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
 
     return (
         <>
-            <Content>
-                {!loadRealGrades && !loading && <RealGradeList realGrades={AllRealGrade}/>}
+            <Content style={styles.content}>
+                <View style={styles.view}>
+                    {loadRealGrades && <Spinner color="#a9a9a9" style={styles.spinner}/>}
+                    {!loadRealGrades && !loading && <RealGradeList realGrades={AllRealGrade}/>}
+                </View>
             </Content>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+      flex: 1,
+    },
+    view: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    spinner: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '55%'
+    }
+})
 
 export default RealGradeView

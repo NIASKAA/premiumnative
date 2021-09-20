@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
 import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
@@ -32,16 +33,33 @@ const MasterGradeView = () => {
         }, 3000)
     }, [loadMasterGrade])
 
-    if(loading) return <Spinner/>
+    if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
     
     return (
         <>
-            <Content>
-                {loadMasterGrade && <Spinner/>}
-                {!loadMasterGrade && !loading && <MasterGradeList masterGrades={AllMasterGrade}/>}
+            <Content style={styles.content}>
+                <View style={styles.view}>
+                    {loadMasterGrade && <Spinner color="#a9a9a9" style={styles.spinner}/>}
+                    {!loadMasterGrade && !loading && <MasterGradeList masterGrades={AllMasterGrade}/>}
+                </View>
             </Content>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+      flex: 1,
+    },
+    view: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    spinner: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '55%'
+    }
+  })
 
 export default MasterGradeView

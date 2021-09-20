@@ -62,10 +62,10 @@ const MasterGradeCards = ({masterGrade}) => {
             </CardItem>
             <CardItem>
                 <Body>
-                    <Text>{masterGrade.gunplaName}</Text>
-                    <Text>{masterGrade.series}</Text>
-                    <Text>{masterGrade.releaseDate}</Text>
-                    <Text>{masterGrade.price}</Text>
+                    <Text>Name: {masterGrade.gunplaName}</Text>
+                    <Text>Series: {masterGrade.series}</Text>
+                    <Text>Release Date: {masterGrade.releaseDate}</Text>
+                    <Text>Price: {masterGrade.price} (Yen)</Text>
                     <TouchableOpacity onPress={saveToWishlist}>
                         <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
                     </TouchableOpacity>

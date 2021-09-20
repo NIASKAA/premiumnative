@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from 'react-redux'
 import {useQuery} from '@apollo/client'
 import {Content, Spinner} from 'native-base'
@@ -33,16 +34,34 @@ const HighGradeView = () => {
         }, 3000);
     }, [loadHighGrades]);
 
-    if(loading) return <Spinner/>
+    if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
+
     return (
         <>
-            <Content>
-                {loadHighGrades && <Spinner/>}
-                {!loadHighGrades && !loading && <HighGradeList highGrades={AllHighGrade}/> }
+            <Content style={styles.content}>
+                <View style={styles.view}>
+                    {loadHighGrades && <Spinner color="#a9a9a9" style={styles.spinner}/>}
+                    {!loadHighGrades && !loading && <HighGradeList highGrades={AllHighGrade}/> }
+                </View>
             </Content>
             <BottomNavigation/>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+      flex: 1,
+    },
+    view: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    spinner: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '55%'
+    }
+  })
 
 export default HighGradeView

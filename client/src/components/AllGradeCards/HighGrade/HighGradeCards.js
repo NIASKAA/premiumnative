@@ -62,10 +62,10 @@ const HighGradeCards = ({highGrade}) => {
             </CardItem>
             <CardItem>
                 <Body>
-                    <Text>{highGrade.gunplaName}</Text>
-                    <Text>{highGrade.series}</Text>
-                    <Text>{highGrade.releaseDate}</Text>
-                    <Text>{highGrade.price}</Text>
+                    <Text>Name: {highGrade.gunplaName}</Text>
+                    <Text>Series: {highGrade.series}</Text>
+                    <Text>Release Date: {highGrade.releaseDate}</Text>
+                    <Text>Price: {highGrade.price} (Yen)</Text>
                     <TouchableOpacity onPress={saveToWishlist}>
                         <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
                     </TouchableOpacity>

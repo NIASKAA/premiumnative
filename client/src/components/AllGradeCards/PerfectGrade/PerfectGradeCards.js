@@ -62,10 +62,10 @@ const PerfectGradeCards = ({perfectGrade}) => {
             </CardItem>
             <CardItem>
                 <Body>
-                    <Text>{perfectGrade.gunplaName}</Text>
-                    <Text>{perfectGrade.series}</Text>
-                    <Text>{perfectGrade.releaseDate}</Text>
-                    <Text>{perfectGrade.price}</Text>
+                    <Text>Name: {perfectGrade.gunplaName}</Text>
+                    <Text>Series: {perfectGrade.series}</Text>
+                    <Text>Release Date: {perfectGrade.releaseDate}</Text>
+                    <Text>Price: {perfectGrade.price} (Yen)</Text>
                     <TouchableOpacity onPress={saveToWishlist}>
                         <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
                     </TouchableOpacity>

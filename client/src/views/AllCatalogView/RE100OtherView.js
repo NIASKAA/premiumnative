@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
 import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
@@ -32,14 +33,33 @@ const RE100OtherView = () => {
         }, 2000)
     }, [loadingOther]);
 
-    if(loading) return <Spinner/>
+    if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
+    
     return (
         <>
-            <Content>
-                {!loadingOther && !loading && <RE100OtherList re100Others={AllOther}/>}
+            <Content style={styles.content}>
+                <View style={styles.view}>
+                    {loadingOther && <Spinner color="#a9a9a9" style={styles.spinner}/>}
+                    {!loadingOther && !loading && <RE100OtherList re100Others={AllOther}/>}
+                </View>
             </Content>
         </>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+      flex: 1,
+    },
+    view: {
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    spinner: {
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: '55%'
+    }
+  })
 
 export default RE100OtherView

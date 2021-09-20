@@ -63,10 +63,10 @@ const ConvergeCards = ({converge}) => {
             </CardItem>
             <CardItem>
                 <Body>
-                    <Text>{converge.gunplaName}</Text>
-                    <Text>{converge.series}</Text>
-                    <Text>{converge.releaseDate}</Text>
-                    <Text>{converge.price}</Text>
+                    <Text>Name: {converge.gunplaName}</Text>
+                    <Text>Series: {converge.series}</Text>
+                    <Text>Release Date: {converge.releaseDate}</Text>
+                    <Text>Price: {converge.price} (Yen)</Text>
                     <TouchableOpacity onPress={saveToWishlist}>
                         <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
                     </TouchableOpacity>

@@ -145,7 +145,6 @@ const typeDefs = gql`
         deletePerfectGradeWishlist(perfectGradeID: ID! id: ID): ProfileData
         deleteSDGradeWishlist(SDGradeID: ID! id: ID): ProfileData
         deleteOtherWishlist(otherID: ID! id: ID): ProfileData
-        deleteTest(gunplaID: ID! id: ID): ProfileData
     }
 `;
 module.exports = typeDefs;
