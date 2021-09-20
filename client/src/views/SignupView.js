@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Alert, Pressabl, ActivityIndicator} from 'react-native';
+import {Alert, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
@@ -37,8 +37,8 @@ const SignupView = () => {
     }
 
     return (
-        <Content>
-            <Form>
+        <Content style={styles.content}>
+            <Form style={styles.form}>
                 <Item>
                     <Input 
                         placeholder="Username"
@@ -60,30 +60,48 @@ const SignupView = () => {
                         onChangeText={setPassword}
                     />
                 </Item>
-                <Pressable 
+                <Button
+                    bordered danger
                     onPress={handleFormSubmit}
-                    style={{ 
-                        height: 50,
-                        borderRadius: 5,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        marginTop: 30,
-                    }}
-                    ><Text>Sign Up</Text>
-                </Pressable>
+                    style={styles.signupBtn}
+                    ><Text style={styles.text}>Sign Up</Text>
+                </Button>
             </Form>
             <Button
+                bordered danger
                 onPress={() => {navigation.navigate('Login')}}
-                style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginTop: 30,
-                }}
-                ><Text>Already have an account? Sign In Here!</Text>
+                style={styles.login}
+                ><Text style={styles.text}>Already have an account? Sign In Here!</Text>
             </Button>
             {loading && <ActivityIndicator size="large" />}
         </Content>
     )
 }
+
+const styles = StyleSheet.create({
+    content: {
+        flex: 1
+    },
+    form: {
+        marginTop: '40%'
+    },
+    signupBtn: {
+        height: 50,
+        borderRadius: 5,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 30,
+        left: '62%',
+        marginBottom: 10
+    },
+    login: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        left: 34,
+    },
+    text: {
+        color: 'red'
+    }
+})
 
 export default SignupView
