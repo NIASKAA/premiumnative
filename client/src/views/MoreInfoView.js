@@ -24,13 +24,12 @@ const MoreInfoView = ({navigation, route}) => {
                     convergeID: id
                 }
             })
+            console.log(id)
         } catch (error) {
             console.log(error)
-        }
-        window.location.reload();   
+        }  
     }
 
-    console.log(route.params)
     return (
         <>  
             <Card>

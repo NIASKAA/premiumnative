@@ -379,7 +379,7 @@ export const DELETE_CONVERGE_WISHLIST = gql`
         deleteConvergeWishlist(convergeID: $convergeID id: $id) {
             username
             email
-            convergesWish {
+            convergeWish {
                 _id
                 gunplaName
                 image
