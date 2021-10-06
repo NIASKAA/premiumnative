@@ -5,7 +5,7 @@ import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
 import {DELETE_REALGRADE_WISHLIST, DELETE_REALGRADE_SAVE} from '../../utils/mutations'
 
-const RealGradeInfoView = () => {
+const RealGradeInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteRealGradeWishlist] = useMutation(DELETE_REALGRADE_WISHLIST)
     const [deleteRealGradeSave] = useMutation(DELETE_REALGRADE_SAVE)

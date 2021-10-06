@@ -3,18 +3,18 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_MASTERGRADE_WISHLIST, DELETE_MASTERGRADE_SAVE} from '../../utils/mutations'
+import {DELETE_SDGRADE_WISHLIST, DELETE_SDGRADE_SAVE} from '../../utils/mutations'
 
-const MasterGradeInfoView = ({route}) => {
+const SDGradeInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
-    const [deleteMasterGradeWishlist] = useMutation(DELETE_MASTERGRADE_WISHLIST)
-    const [deleteMasterGradeSave] = useMutation(DELETE_MASTERGRADE_SAVE)
+    const [deleteSDGradeWishlist] = useMutation(DELETE_SDGRADE_WISHLIST)
+    const [deleteSDGradeSave] = useMutation(DELETE_SDGRADE_SAVE)
 
     const deleteItem = (id) => {
         try {
-            deleteMasterGradeWishlist({
+            deleteSDGradeWishlist({
                 variables: {
-                    masterGradeID: id
+                    sdGradeID: id
                 }
             })
             console.log(id)
@@ -25,15 +25,16 @@ const MasterGradeInfoView = ({route}) => {
 
     const deleteSave = (id) => {
         try {
-            deleteMasterGradeSave({
+            deleteSDGradeSave({
                 variables: {
-                    masterGradeID: id
+                    sdGradeID: id
                 }
             })
         } catch (error) {
             console.log(error)
         }
     }
+
     return (
         <>
             <Card>
@@ -73,4 +74,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default MasterGradeInfoView
+export default SDGradeInfoView

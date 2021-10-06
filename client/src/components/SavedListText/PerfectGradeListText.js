@@ -10,7 +10,7 @@ const PerfectGradeListText = ({perfectGrades}) => {
         <>
             {perfectGrades.map((perfectGrade) => (
                 <ListItem perfectGrade={perfectGrade} key={perfectGrade.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', perfectGrade)}>
+                    <TouchableOpacity onPress={() => navigation.navigate('PerfectGradeInfoView', perfectGrade)}>
                         <Text>{perfectGrade.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>

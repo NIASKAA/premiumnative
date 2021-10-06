@@ -3,18 +3,18 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_MASTERGRADE_WISHLIST, DELETE_MASTERGRADE_SAVE} from '../../utils/mutations'
+import {DELETE_PERFECTGRADE_WISHLIST, DELETE_PERFECTGRADE_SAVE} from '../../utils/mutations'
 
-const MasterGradeInfoView = ({route}) => {
+const PerfectGradeInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
-    const [deleteMasterGradeWishlist] = useMutation(DELETE_MASTERGRADE_WISHLIST)
-    const [deleteMasterGradeSave] = useMutation(DELETE_MASTERGRADE_SAVE)
+    const [deletePerfectGradeWishlist] = useMutation(DELETE_PERFECTGRADE_WISHLIST)
+    const [deletePerfectGradeSave] = useMutation(DELETE_PERFECTGRADE_SAVE)
 
     const deleteItem = (id) => {
         try {
-            deleteMasterGradeWishlist({
+            deletePerfectGradeWishlist({
                 variables: {
-                    masterGradeID: id
+                    perfectGradeID: id
                 }
             })
             console.log(id)
@@ -25,9 +25,9 @@ const MasterGradeInfoView = ({route}) => {
 
     const deleteSave = (id) => {
         try {
-            deleteMasterGradeSave({
+            deletePerfectGradeSave({
                 variables: {
-                    masterGradeID: id
+                    perfectGradeID: id
                 }
             })
         } catch (error) {
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default MasterGradeInfoView
+export default PerfectGradeInfoView

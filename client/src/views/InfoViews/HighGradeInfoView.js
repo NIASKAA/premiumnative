@@ -5,7 +5,7 @@ import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
 import {DELETE_HIGHGRADE_WISHLIST, DELETE_HIGHGRADE_SAVE} from '../../utils/mutations'
 
-const HighGradeInfoView = () => {
+const HighGradeInfoView = ({route}) => {
 
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteHighGradeWishlist] = useMutation(DELETE_HIGHGRADE_WISHLIST)

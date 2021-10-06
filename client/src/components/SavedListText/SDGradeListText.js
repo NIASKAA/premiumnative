@@ -10,7 +10,7 @@ const SDGradeListText = ({SDGrades}) => {
         <>
             {SDGrades.map((SDGrade) => (
                 <ListItem SDGrade={SDGrade} key={SDGrade.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', SDGrade)}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SDGradeInfoView', SDGrade)}>
                         <Text>{SDGrade.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>

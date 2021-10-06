@@ -10,7 +10,7 @@ const MasterGradeWishlistText = ({masterGrades}) => {
         <>
             {masterGrades.map((masterGrade) => (
                 <ListItem masterGrade={masterGrade} key={masterGrade.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', masterGrade)}> 
+                    <TouchableOpacity onPress={() => navigation.navigate('MasterGradeInfoView', masterGrade)}> 
                         <Text>{masterGrade.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>

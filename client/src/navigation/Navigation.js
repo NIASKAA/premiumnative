@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView, FAQView, SendFeedbackView, PrivacyView, UpdateView} from '../views'
 import {HighGradeView, RealGradeView, RE100OtherView, MasterGradeView, PerfectGradeView, SDGradeView, ConvergeView} from '../views/AllCatalogView'
-import {ConvergeInfoView, HighGradeInfoView, RE100OtherInfoView, RealGradeInfoView} from '../views/InfoViews'
+import {ConvergeInfoView, HighGradeInfoView, MasterGradeInfoView, RE100OtherInfoView, RealGradeInfoView, PerfectGradeInfoView, SDGradeInfoView} from '../views/InfoViews'
 
 export default function Navigation() {
     return (
@@ -123,6 +123,24 @@ function RootNavigator() {
             <Stack.Screen
               name="RE100OtherInfoView"
               component={RE100OtherInfoView}
+              options={{title: 'More-Info'}}
+            />
+
+            <Stack.Screen
+              name="MasterGradeInfoView"
+              component={MasterGradeInfoView}
+              options={{title: 'More-Info'}}
+            />
+
+            <Stack.Screen
+              name="PerfectGradeInfoView"
+              component={PerfectGradeInfoView}
+              options={{title: 'More-Info'}}
+            />
+
+            <Stack.Screen
+              name="SDGradeInfoView"
+              component={SDGradeInfoView}
               options={{title: 'More-Info'}}
             />
 

@@ -5,7 +5,7 @@ import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
 import {DELETE_OTHER_SAVE, DELETE_OTHER_WISHLIST} from '../../utils/mutations'
 
-const RE100OtherInfoView = () => {
+const RE100OtherInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteOtherWishlist] = useMutation(DELETE_OTHER_WISHLIST)
     const [deleteOtherSave] = useMutation(DELETE_OTHER_SAVE)
