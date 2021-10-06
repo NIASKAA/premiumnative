@@ -1,5 +1,5 @@
-import React from 'react'
-import {StyleSheet} from 'react-native'
+import React, {useState} from 'react'
+import {StyleSheet, Alert} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
@@ -9,9 +9,16 @@ const MasterGradeInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteMasterGradeWishlist] = useMutation(DELETE_MASTERGRADE_WISHLIST)
     const [deleteMasterGradeSave] = useMutation(DELETE_MASTERGRADE_SAVE)
+    const [errors, setErrors] = useState({
+        deleteWishlistSuccess: null,
+        deleteWishlistFail: null,
+        deleteSaveSuccess: null,
+        deleteSaveFail: null
+    })
 
     const deleteItem = (id) => {
         try {
+            setErrors({...errors, deleteWishlistSuccess: true})
             deleteMasterGradeWishlist({
                 variables: {
                     masterGradeID: id
@@ -20,11 +27,13 @@ const MasterGradeInfoView = ({route}) => {
             console.log(id)
         } catch (error) {
             console.log(error)
+            setErrors({...errors, deleteWishlistFail: true})
         }  
     }
 
     const deleteSave = (id) => {
         try {
+            setErrors({...errors, deleteSaveSuccess: true})
             deleteMasterGradeSave({
                 variables: {
                     masterGradeID: id
@@ -32,8 +41,18 @@ const MasterGradeInfoView = ({route}) => {
             })
         } catch (error) {
             console.log(error)
+            setErrors({...errors, deleteSaveFail: true})
         }
     }
+
+    if(errors.deleteWishlistSuccess === true) {
+        Alert.alert('Deleted Successfully!')
+    }
+
+    if(errors.deleteSavedSuccess === true) {
+        Alert.alert('Deleted Successfully!')
+    }
+    
     return (
         <>
             <Card>
