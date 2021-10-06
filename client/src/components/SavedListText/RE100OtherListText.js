@@ -10,7 +10,7 @@ const RE100OtherListText = ({re100Others}) => {
         <>
             {re100Others.map((re100Other) => (
                 <ListItem re100Other={re100Other} key={re100Other.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', re100Other)}>
+                    <TouchableOpacity onPress={() => navigation.navigate('RE100OtherInfoView', re100Other)}>
                         <Text>{re100Other.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>

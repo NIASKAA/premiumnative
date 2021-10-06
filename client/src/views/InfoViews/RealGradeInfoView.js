@@ -3,18 +3,18 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../../utils/mutations'
+import {DELETE_REALGRADE_WISHLIST, DELETE_REALGRADE_SAVE} from '../../utils/mutations'
 
-const ConvergeInfoView = ({navigation, route}) => {
+const RealGradeInfoView = () => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
-    const [deleteConvergeWishlist] = useMutation(DELETE_CONVERGE_WISHLIST)
-    const [deleteConvergeSave] = useMutation(DELETE_CONVERGE_SAVE)
+    const [deleteRealGradeWishlist] = useMutation(DELETE_REALGRADE_WISHLIST)
+    const [deleteRealGradeSave] = useMutation(DELETE_REALGRADE_SAVE)
 
     const deleteItem = (id) => {
         try {
-            deleteConvergeWishlist({
+            deleteRealGradeWishlist({
                 variables: {
-                    convergeID: id
+                    realGradeID: id
                 }
             })
             console.log(id)
@@ -25,18 +25,17 @@ const ConvergeInfoView = ({navigation, route}) => {
 
     const deleteSave = (id) => {
         try {
-            deleteConvergeSave({
+            deleteRealGradeSave({
                 variables: {
-                    convergeID: id
+                    realGradeID: id
                 }
             })
         } catch (error) {
             console.log(error)
         }
     }
-
     return (
-        <>  
+        <>
             <Card>
                 <CardItem cardBody>
                     <FastImage source={{uri: image}} style={styles.cardImage}/>
@@ -74,4 +73,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ConvergeInfoView
+export default RealGradeInfoView

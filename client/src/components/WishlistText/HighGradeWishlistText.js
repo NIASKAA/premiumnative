@@ -10,7 +10,7 @@ const HighGradeWishlistText = ({highGrades}) => {
         <>
             {highGrades.map((highGrade) => (
                 <ListItem highGrade={highGrade} key={highGrade.id}>
-                    <Pressable onPress={() => navigation.navigate('MoreInfoView', highGrade)}>
+                    <Pressable onPress={() => navigation.navigate('HighGradeInfoView', highGrade)}>
                         <Text>{highGrade.gunplaName}</Text>
                     </Pressable>
                 </ListItem>

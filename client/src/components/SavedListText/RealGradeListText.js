@@ -9,7 +9,7 @@ const RealGradeListText = ({realGrades}) => {
         <>
             {realGrades.map((realGrade) => (
                 <ListItem realGrade={realGrade} key={realGrade.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', realGrade)}>
+                    <TouchableOpacity onPress={() => navigation.navigate('RealGradeInfoView', realGrade)}>
                         <Text>{realGrade.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>

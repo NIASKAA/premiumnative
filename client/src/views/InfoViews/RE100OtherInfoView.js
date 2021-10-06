@@ -3,18 +3,18 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../../utils/mutations'
+import {DELETE_OTHER_SAVE, DELETE_OTHER_WISHLIST} from '../../utils/mutations'
 
-const ConvergeInfoView = ({navigation, route}) => {
+const RE100OtherInfoView = () => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
-    const [deleteConvergeWishlist] = useMutation(DELETE_CONVERGE_WISHLIST)
-    const [deleteConvergeSave] = useMutation(DELETE_CONVERGE_SAVE)
+    const [deleteOtherWishlist] = useMutation(DELETE_OTHER_WISHLIST)
+    const [deleteOtherSave] = useMutation(DELETE_OTHER_SAVE)
 
     const deleteItem = (id) => {
         try {
-            deleteConvergeWishlist({
+            deleteOtherWishlist({
                 variables: {
-                    convergeID: id
+                    otherID: id
                 }
             })
             console.log(id)
@@ -25,9 +25,9 @@ const ConvergeInfoView = ({navigation, route}) => {
 
     const deleteSave = (id) => {
         try {
-            deleteConvergeSave({
+            deleteOtherSave({
                 variables: {
-                    convergeID: id
+                    otherID: id
                 }
             })
         } catch (error) {
@@ -36,7 +36,7 @@ const ConvergeInfoView = ({navigation, route}) => {
     }
 
     return (
-        <>  
+        <>
             <Card>
                 <CardItem cardBody>
                     <FastImage source={{uri: image}} style={styles.cardImage}/>
@@ -74,4 +74,5 @@ const styles = StyleSheet.create({
     }
 })
 
-export default ConvergeInfoView
+
+export default RE100OtherInfoView
