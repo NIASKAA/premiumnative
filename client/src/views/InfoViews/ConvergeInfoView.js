@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../utils/mutations'
+import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../../utils/mutations'
 
 
 const MoreInfoView = ({navigation, route}) => {

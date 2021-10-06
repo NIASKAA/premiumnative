@@ -10,7 +10,7 @@ const ConvergeListText = ({converges}) => {
         <>
             {converges.map((converge) => (
                 <ListItem converge={converge} key={converge.id}>
-                    <TouchableOpacity onPress={() => navigation.navigate('MoreInfoView', converge)}>
+                    <TouchableOpacity onPress={() => navigation.navigate('ConvergeInfoView', converge)}>
                         <Text>{converges.gunplaName}</Text>
                     </TouchableOpacity>
                 </ListItem>
