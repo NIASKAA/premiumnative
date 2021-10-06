@@ -3,19 +3,13 @@ import {StyleSheet} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
-import {DELETE_CONVERGE_WISHLIST, 
-    DELETE_HIGHGRADE_WISHLIST, 
-    DELETE_REALGRADE_WISHLIST, 
-    DELETE_MASTERGRADE_WISHLIST, 
-    DELETE_PERFECT_WISHLIST, 
-    DELETE_SDGRADE_WISHLIST,
-    DELETE_OTHER_WISHLIST
-} from '../utils/mutations'
+import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../utils/mutations'
 
 
 const MoreInfoView = ({navigation, route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteConvergeWishlist] = useMutation(DELETE_CONVERGE_WISHLIST)
+    const [deleteConvergeSave] = useMutation(DELETE_CONVERGE_SAVE)
 
     const deleteItem = (id) => {
         try {
@@ -28,6 +22,18 @@ const MoreInfoView = ({navigation, route}) => {
         } catch (error) {
             console.log(error)
         }  
+    }
+
+    const deleteSave = (id) => {
+        try {
+            deleteConvergeSave({
+                variables: {
+                    convergeID: id
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -46,7 +52,8 @@ const MoreInfoView = ({navigation, route}) => {
                         </Body>
                     </Left>
                 </CardItem>
-                <Button style={styles.delBtn} onPress={() => deleteItem(_id)}><Text>Delete</Text></Button>
+                <Button style={styles.delBtn} onPress={() => deleteSave(_id)}><Text>Delete from saved list</Text></Button>
+                <Button style={styles.delBtn} onPress={() => deleteItem(_id)}><Text>Delete from wishlist</Text></Button>
             </Card>
         </>
     )
