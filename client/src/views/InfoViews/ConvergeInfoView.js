@@ -1,17 +1,24 @@
-import React from 'react'
-import {StyleSheet} from 'react-native'
+import React, {useState} from 'react'
+import {StyleSheet, Alert} from 'react-native'
 import FastImage from 'react-native-fast-image'
 import {useMutation} from '@apollo/client'
 import {Text, Body, Card, CardItem, Left, Button} from 'native-base'
 import {DELETE_CONVERGE_WISHLIST, DELETE_CONVERGE_SAVE} from '../../utils/mutations'
 
-const ConvergeInfoView = ({navigation, route}) => {
+const ConvergeInfoView = ({route}) => {
     const {gunplaName, image, releaseDate, price, series, _id} = route.params
     const [deleteConvergeWishlist] = useMutation(DELETE_CONVERGE_WISHLIST)
     const [deleteConvergeSave] = useMutation(DELETE_CONVERGE_SAVE)
+    const [errors, setErrors] = useState({
+        deleteSavedSuccess: null,
+        deleteSavedFail: null,
+        deleteWishlistSuccess: null,
+        deleteWishlistFail: null
+    })
 
     const deleteItem = (id) => {
         try {
+            setErrors({...errors, deleteWishlistSuccess: true})
             deleteConvergeWishlist({
                 variables: {
                     convergeID: id
@@ -20,11 +27,13 @@ const ConvergeInfoView = ({navigation, route}) => {
             console.log(id)
         } catch (error) {
             console.log(error)
+            setErrors({...errors, deleteWishlistFail: true})
         }  
     }
 
     const deleteSave = (id) => {
         try {
+            setErrors({...errors, deleteSavedSuccess: true})
             deleteConvergeSave({
                 variables: {
                     convergeID: id
@@ -32,7 +41,16 @@ const ConvergeInfoView = ({navigation, route}) => {
             })
         } catch (error) {
             console.log(error)
+            setErrors({...errors, deleteSavedFail: true})
         }
+    }
+
+    if(errors.deleteWishlistSuccess === true) {
+        Alert.alert('Deleted Successfully!')
+    }
+
+    if(errors.deleteSavedSuccess === true) {
+        Alert.alert('Deleted Successfully!')
     }
 
     return (
