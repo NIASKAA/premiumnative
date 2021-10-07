@@ -4,11 +4,12 @@ import { useNavigation } from '@react-navigation/native';
 import BottomNavigation from '../components/Footer'
 import {Text, Header, Content, Title} from 'native-base'
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import decode from 'jwt-decode'
 
 const CatalogView = () => {
     const navigation = useNavigation()
 
-    useEffect(() => {
+    /*useEffect(() => {
         const checkUser = async () => {
           if (await isAuthenticated()) {
             navigation.navigate('Catalog');
@@ -18,12 +19,27 @@ const CatalogView = () => {
         }
     
         checkUser();
-    }, []);
+    }, []);*/
+
+    useEffect(() => {
+        const isTokenExpired = (token) => {
+            try {
+                const decoded = decode(token);
+                if(decoded.exp < Date.now() / 1000) {
+                    navigation.navigate('Login')
+                } else return false;
+            } catch (error) {
+                return false
+            }
+        }
+
+        isTokenExpired();
+    })
     
-    const isAuthenticated = async () => {
+    /*const isAuthenticated = async () => {
         const token = await AsyncStorage.getItem('token');
         return !!token;
-    }
+    }*/
 
     return (
         <>
