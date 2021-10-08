@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react'
-import {StyleSheet, View} from 'react-native'
-import {Content, Spinner} from 'native-base'
+import {StyleSheet, View, ActivityIndicator} from 'react-native'
+import {Content} from 'native-base'
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import jwt_decode from 'jwt-decode'
 
 const SplashView = () => {
   const navigation = useNavigation()
-
 
   useEffect(() => {
     const checkUser = async () => {
@@ -31,7 +30,7 @@ const SplashView = () => {
       <>
         <Content>
           <View style={styles.content}> 
-            <Spinner style={styles.loading}/>
+            <ActivityIndicator size="large" style={styles.loading}/>
           </View>
         </Content>
       </>
@@ -46,6 +45,7 @@ const styles= StyleSheet.create({
   loading: {
     borderColor: 'white',
     textAlign: 'center',
+    color: "#999999"
   }
 })
 

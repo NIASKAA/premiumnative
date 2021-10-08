@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {Alert, Pressable, ActivityIndicator, StyleSheet} from 'react-native';
+import {Alert, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
