@@ -67,13 +67,13 @@ const RE100OtherCards = ({re100Other}) => {
                     <Text>Series: {re100Other.series}</Text>
                     <Text>Release Date: {re100Other.releaseDate}</Text>
                     <Text>Price: {re100Other.price}</Text>
+                    <TouchableOpacity onPress={saveToWishlist}>
+                        <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={saveToList}>
+                        <Icon name={saved ? 'star' : 'star-outlined'} size={28} style={styles.likedWishlist}/>
+                    </TouchableOpacity>
                 </Body>
-                <TouchableOpacity onPress={saveToWishlist}>
-                    <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={saveToList}>
-                    <Icon name={saved ? 'star' : 'star-outlined'} size={28} style={styles.likedWishlist}/>
-                </TouchableOpacity>
             </CardItem>
         </Card>
     )

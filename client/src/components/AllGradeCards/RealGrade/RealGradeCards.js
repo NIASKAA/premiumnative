@@ -61,17 +61,17 @@ const RealGradeCards = ({realGrade}) => {
             </CardItem>
             <CardItem>
                 <Body>
-                    <Text>{realGrade.gunplaName}</Text>
-                    <Text>{realGrade.series}</Text>
-                    <Text>{realGrade.releaseDate}</Text>
-                    <Text>{realGrade.price}</Text>
+                    <Text>Name: {realGrade.gunplaName}</Text>
+                    <Text>Series: {realGrade.series}</Text>
+                    <Text>Release Date: {realGrade.releaseDate}</Text>
+                    <Text>Price: {realGrade.price} (Yen)</Text>
+                    <TouchableOpacity onPress={saveToWishlist}>
+                        <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={saveToList}>
+                        <Icon name={saved ? 'star' : 'star-outlined'} size={28} style={styles.likedWishlist}/>
+                    </TouchableOpacity>
                 </Body>
-                <TouchableOpacity onPress={saveToWishlist}>
-                    <Icon name="add-to-list" size={28} style={styles.likedSaveIcon}/>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={saveToList}>
-                    <Icon name={saved ? 'star' : 'star-outlined'} size={28} style={styles.likedWishlist}/>
-                </TouchableOpacity>
             </CardItem>
         </Card>
     )
