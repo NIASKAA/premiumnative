@@ -3,29 +3,9 @@ import {TouchableOpacity, StyleSheet, Image, View} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import BottomNavigation from '../components/Footer'
 import {Text, Header, Content, Title} from 'native-base'
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import decode from 'jwt-decode'
 
 const CatalogView = () => {
     const navigation = useNavigation()
-
-    useEffect(() => {
-        const checkUser = async () => {
-          if (await isAuthenticated()) {
-            navigation.navigate('Catalog');
-          } else {
-            navigation.navigate('Login');
-          }
-        }
-    
-        checkUser();
-    }, []);
-
-    
-    const isAuthenticated = async () => {
-        const token = await AsyncStorage.getItem('token');
-        return !!token;
-    }
 
     return (
         <>

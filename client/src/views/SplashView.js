@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {StyleSheet, Image, View} from 'react-native'
+import {StyleSheet, Spinner} from 'react-native'
 import {Content} from 'native-base'
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -79,7 +79,7 @@ const SplashView = () => {
     
       return null
     }
-    
+
     setCredentials();
     getCredentials();
 
@@ -87,7 +87,7 @@ const SplashView = () => {
         <>
           <Content>
             <View style={styles.content}> 
-              <Image source={require('../assets/img/gunpla.png')} style={styles.images}/>
+              <Spinner style={styles.loading}/>
             </View>
           </Content>
         </>
@@ -99,7 +99,7 @@ const styles= StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  images: {
+  loading: {
     borderColor: 'white',
     textAlign: 'center',
   }
