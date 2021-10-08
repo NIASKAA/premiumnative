@@ -50,8 +50,16 @@ const HighGradeInfoView = ({route}) => {
         Alert.alert('Deleted Successfully!')
     }
 
+    if(errors.deleteWishlistFail === true) {
+        Alert.alert('Item does not exist in your list!')
+    }
+    
     if(errors.deleteSavedSuccess === true) {
         Alert.alert('Deleted Successfully!')
+    }
+
+    if(errors.deleteSavedFail === true) {
+        Alert.alert('Item does not exist in your list!')
     }
     
     return (
