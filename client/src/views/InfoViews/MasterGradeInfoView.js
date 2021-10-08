@@ -49,10 +49,18 @@ const MasterGradeInfoView = ({route}) => {
         Alert.alert('Deleted Successfully!')
     }
 
+    if(errors.deleteWishlistFail === true) {
+        Alert.alert('Item does not exist in you list!')
+    }
+
     if(errors.deleteSavedSuccess === true) {
         Alert.alert('Deleted Successfully!')
     }
-    
+
+    if(errors.deleteSaveFail === true) {
+        Alert.alert('Item does not exist in your list!')
+    }  
+      
     return (
         <>
             <Card>
