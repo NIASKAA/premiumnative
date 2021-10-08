@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
-import {StyleSheet, Spinner} from 'react-native'
-import {Content} from 'native-base'
+import {StyleSheet, View} from 'react-native'
+import {Content, Spinner} from 'native-base'
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import decode from 'jwt-decode'
@@ -8,31 +8,31 @@ import decode from 'jwt-decode'
 const SplashView = () => {
     const navigation = useNavigation()
 
-    async function getVerifiedKeys (keys) {
+    async function getVerifiedKeys (token) {
       console.log('Loading keys from storage')
     
-      if (keys) {
+      if (token) {
         console.log('checking access')
     
-        if (!isTokenExpired(keys.access)) {
+        if (!isTokenExpired(token.access)) {
           console.log('returning access')
-    
-          return keys
+          navigation.navigate('Catalog')
+          return token
         } else {
           console.log('access expired')
     
           console.log('checking refresh expiry')
     
-          if (!isTokenExpired(keys.refresh)) {
+          if (!isTokenExpired(token.refresh)) {
             console.log('fetching access using refresh')
     
-            const response = await getAccessUsingRefresh(keys.refresh)
+            const response = await getAccessUsingRefresh(token.refresh)
     
-            await AsyncStorage.setItem('keys', JSON.stringify(response))
+            await AsyncStorage.setItem('token', JSON.stringify(response))
     
             console.log('UPDATED ONE')
-    
             return response
+            
           } else {
             console.log('refresh expired, please login')
             navigation.navigate('Login')
@@ -54,11 +54,11 @@ const SplashView = () => {
       }
     }
     
-    const setCredentials = async keys => {
+    const setCredentials = async token => {
       try {
-        await AsyncStorage.setItem('token', JSON.stringify(keys))
-      } catch (e) {
-        console.log(e)
+        await AsyncStorage.setItem('token', JSON.stringify(token))
+      } catch (error) {
+        console.log(error)
       }
     }
     
@@ -73,8 +73,8 @@ const SplashView = () => {
         } else {
           return null
         }
-      } catch (e) {
-        console.log(e)
+      } catch (error) {
+        console.log(error)
       }
     
       return null
