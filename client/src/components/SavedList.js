@@ -9,8 +9,17 @@ import {
     GET_SAVE_MASTERGRADE, 
     GET_SAVE_PERFECTGRADE, 
     GET_SAVE_SDGRADE, 
-    GET_SAVE_OTHER} from '../utils/queries'
-import {HighGradeListText, RealGradeListText, RE100OtherListText, MasterGradeListText, PerfectGradeListText, SDGradeListText, ConvergeListText} from './SavedListText'
+    GET_SAVE_OTHER
+} from '../utils/queries'
+import {
+    HighGradeListText, 
+    RealGradeListText, 
+    RE100OtherListText, 
+    MasterGradeListText, 
+    PerfectGradeListText, 
+    SDGradeListText, 
+    ConvergeListText
+} from './SavedListText'
 
 const SavedList = () => {
     const {loading, data, refetch} = useQuery(GET_SAVE_CONVERGE)

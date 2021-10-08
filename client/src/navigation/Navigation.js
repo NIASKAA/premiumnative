@@ -1,9 +1,36 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {SettingsView, ProfileView, CatalogView, SplashView, LoginView, SignupView, FAQView, SendFeedbackView, PrivacyView, UpdateView} from '../views'
-import {HighGradeView, RealGradeView, RE100OtherView, MasterGradeView, PerfectGradeView, SDGradeView, ConvergeView} from '../views/AllCatalogView'
-import {ConvergeInfoView, HighGradeInfoView, MasterGradeInfoView, RE100OtherInfoView, RealGradeInfoView, PerfectGradeInfoView, SDGradeInfoView} from '../views/InfoViews'
+import {
+  SettingsView, 
+  ProfileView, 
+  CatalogView, 
+  SplashView, 
+  LoginView, 
+  SignupView, 
+  FAQView, 
+  SendFeedbackView, 
+  PrivacyView, 
+  UpdateView
+} from '../views'
+import {
+  HighGradeView, 
+  RealGradeView, 
+  RE100OtherView, 
+  MasterGradeView, 
+  PerfectGradeView, 
+  SDGradeView, 
+  ConvergeView
+} from '../views/AllCatalogView'
+import {
+  ConvergeInfoView, 
+  HighGradeInfoView, 
+  MasterGradeInfoView, 
+  RE100OtherInfoView, 
+  RealGradeInfoView, 
+  PerfectGradeInfoView, 
+  SDGradeInfoView
+} from '../views/InfoViews'
 
 export default function Navigation() {
     return (
@@ -23,6 +50,7 @@ function RootNavigator() {
               component={SplashView}
               options={{headerShown: false,}}
             />
+
             <Stack.Screen
               name="Login"
               component={LoginView}
@@ -31,6 +59,7 @@ function RootNavigator() {
                 headerShown: false
               }}
             />
+
             <Stack.Screen 
               name="SignUp"
               component={SignupView}
@@ -39,6 +68,7 @@ function RootNavigator() {
                 title: 'Sign-Up'
               }}
             />
+
             <Stack.Screen
               name="Catalog"
               component={CatalogView}
@@ -47,7 +77,7 @@ function RootNavigator() {
                 headerShown: false,
               }}
             />
-
+            
             <Stack.Screen
               name="Profile"
               component={ProfileView}

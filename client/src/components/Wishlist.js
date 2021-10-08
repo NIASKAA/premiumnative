@@ -8,7 +8,8 @@ import {
     GET_MASTERGRADE_WISH, 
     GET_PERFECTGRADE_WISH,
     GET_SDGRADE_WISH,
-    GET_OTHER_WISH} from '../utils/queries'
+    GET_OTHER_WISH
+} from '../utils/queries'
 import {List, Text, Separator, Content} from 'native-base'
 import {
     HighGradeWishlistText, 
