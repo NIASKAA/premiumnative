@@ -3,7 +3,7 @@ import {StyleSheet, View} from 'react-native'
 import {Content, Spinner} from 'native-base'
 import {useNavigation} from '@react-navigation/native'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import decode from 'jwt-decode'
+import jwt_decode from 'jwt-decode'
 
 const SplashView = () => {
   const navigation = useNavigation()
@@ -18,10 +18,13 @@ const SplashView = () => {
     checkUser();
   }, [])
 
-
   const isAuthenticated = async () => {
     const token = await AsyncStorage.getItem('token');
-    return !!token;
+    decoded = jwt_decode(token)
+    if(decoded.exp * 1000  < Date.now()) {
+      console.log('Expired')
+      navigation.navigate('Login')
+    } else return !!token;
   }
 
   return (
