@@ -35,6 +35,13 @@ const SavedList = () => {
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
+        refetchHigh();
+        refetchMaster();
+        refetchOther();
+        refetch();
+        refetchReal();
+        refetchPerfect();
+        refetchSD();
         wait(2000).then(() => setRefreshing(false));
     }, []);
 

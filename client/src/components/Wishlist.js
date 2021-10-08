@@ -43,6 +43,13 @@ const Wishlist = () => {
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
+        refetch();
+        refetchConverge();
+        refetchReal();
+        refetchMaster();
+        refetchPerfect();
+        refetchOther();
+        refetchSD();
         wait(2000).then(() => setRefreshing(false));
     }, []);
 
