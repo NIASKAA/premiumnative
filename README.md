@@ -3,6 +3,11 @@ A mobile app that lets users save what premium-bandai items they own and also pu
 This application was created solely on a life problem I've encountered. With the ever increasing premium-bandai being released, it got harder to keep track of what and when Gunpla are coming out. This application solves all of that. Each users can create an account to keep track of these things.
 
     
+![Catalog Page](https://res.cloudinary.com/ddtqwizaf/image/upload/v1634062692/native1_btkwtc.png)
+
+![HighGrade Page](https://res.cloudinary.com/ddtqwizaf/image/upload/v1634062684/native2_dvkko8.png)
+
+
 ## Tech Usage
 
 **Client:** React-Native.JS, Graphql, Native-Base, Redux, AsyncStorage, React-native fast image, react-native vector icons
@@ -11,8 +16,6 @@ This application was created solely on a life problem I've encountered. With the
 
   
 ## Badges
-
-Add badges from somewhere like: 
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
