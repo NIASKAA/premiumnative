@@ -12,6 +12,8 @@ const SplashView = () => {
     const checkUser = async () => {
       if (await isAuthenticated()) {
         navigation.navigate('Catalog');
+      } else {
+        navigation.navigate('Login')
       }
     }
     checkUser();
@@ -19,11 +21,18 @@ const SplashView = () => {
 
   const isAuthenticated = async () => {
     const token = await AsyncStorage.getItem('token');
-    decoded = jwt_decode(token)
-    if(decoded.exp * 1000  < Date.now()) {
-      console.log('Expired')
-      navigation.navigate('Login')
-    } else return !!token;
+    try {
+      decoded = jwt_decode(token)
+      console.log(token)
+      if(decoded.exp * 1000  < Date.now()) {
+        console.log('Expired')
+        navigation.navigate('Login')
+      } else {
+        navigation.navigate('Login')
+      }
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
