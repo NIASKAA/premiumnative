@@ -22,7 +22,7 @@ This application was created solely on a life problem I've encountered. With the
   
 ## Deployment
 
-Link to app in Apple Store: 
+Link to app in Apple Store: Working In Progress
 
 ## Authors
 
