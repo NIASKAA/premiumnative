@@ -1,6 +1,6 @@
 {
   "name": "RealmJS",
-  "version": "10.7.0",
+  "version": "10.8.0",
   "summary": "Realm is a mobile database: an alternative to SQLite and key-value stores",
   "license": "See the actual license in the file LICENSE",
   "authors": {
@@ -26,7 +26,7 @@
   "pod_target_xcconfig": {
     "CLANG_CXX_LANGUAGE_STANDARD": "c++17",
     "CLANG_CXX_LIBRARY": "libc++",
-    "CURRENT_PROJECT_VERSION": "10.7.0",
+    "CURRENT_PROJECT_VERSION": "10.8.0",
     "VERSIONING_SYSTEM": "apple-generic",
     "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/react-native/ios/RealmReact/\" \"$(PODS_ROOT)/Headers/Public/React-Core/\""
   },
