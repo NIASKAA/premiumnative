@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {ActivityIndicator, StyleSheet, View, TextInput} from 'react-native';
+import {ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
 import {LOGIN} from '../utils/mutations'
-import {Button, Text} from 'native-base'
+import {Button, Text, Input, Form, Item} from 'native-base'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const LoginView = () => {
@@ -32,29 +32,34 @@ const LoginView = () => {
 
     return (
         <KeyboardAwareScrollView>
-            <View style={styles.form}>
-                <TextInput 
-                    placeholder="Email" 
-                    value={email}
-                    onChangeText={setEmail}
-                    autoCorrect={false}
-                    style={styles.textInput}
-                />
-                <TextInput 
-                    placeholder="Password" 
-                    value={password}
-                    onChangeText={setPassword}
-                    secureTextEntry
-                    autoCorrect={false}
-                    style={styles.textInput}
-                />
+            <Form style={styles.form}>
+                <Item regular>
+                    <Input 
+                        placeholder="Email" 
+                        value={email}
+                        onChangeText={setEmail}
+                        autoCorrect={false}
+                        style={styles.textInput}
+                    />
+                </Item>
+                <Item regular>
+                    <Input 
+                        placeholder="Password" 
+                        value={password}
+                        onChangeText={setPassword}
+                        secureTextEntry
+                        autoCorrect={false}
+                        style={styles.textInput}
+                    />
+                </Item>
                 <Button
                     bordered danger
+                    disabled={!(email || password)}
                     onPress={handleFormSubmit}
                     style={styles.loginBtn}
                 ><Text style={styles.text}>Login</Text>
                 </Button>
-            </View>
+            </Form>
             <Button 
                 bordered
                 onPress={() => {navigation.navigate('SignUp')}}
@@ -76,8 +81,8 @@ const styles = StyleSheet.create({
         marginTop: '40%'
     },
     textInput: {
-        height: 70,
-        margin: '4%'
+        height: 30,
+        margin: '4%',
     },
     loginBtn: {
         height: 50,
@@ -85,7 +90,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30,
-        left: '55%',
+        left: '70%',
         marginBottom: 20
     },
     signUpBtn: {

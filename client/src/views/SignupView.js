@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import {Alert, ActivityIndicator, StyleSheet, View, TextInput} from 'react-native';
+import {Alert, ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
 import {ADD_USER} from '../utils/mutations'
-import {Content, Form, Item, Button, Text, Input} from 'native-base'
+import {Button, Text, Input, Item, Form} from 'native-base'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const SignupView = () => {
@@ -39,35 +39,39 @@ const SignupView = () => {
 
     return (
         <KeyboardAwareScrollView>
-            <View style={styles.form}>
-                <TextInput 
-                    placeholder="Username"
-                    value={username} 
-                    onChangeText={setUsername}
-                    style={styles.textInput}
-                />
-
-                <TextInput
-                    placeholder="Email" 
-                    value={email}
-                    onChangeText={setEmail}
-                    style={styles.textInput}
-                />
-
-                <TextInput
-                    placeholder="Password" 
-                    value={password}
-                    onChangeText={setPassword}
-                    style={styles.textInput}
-                />
-        
+            <Form style={styles.form}>
+                <Item regular>
+                    <Input 
+                        placeholder="Username"
+                        value={username} 
+                        onChangeText={setUsername}
+                        style={styles.textInput}
+                    />
+                </Item>
+                <Item regular>
+                    <Input
+                        placeholder="Email" 
+                        value={email}
+                        onChangeText={setEmail}
+                        style={styles.textInput}
+                    />
+                </Item>
+                <Item regular>
+                    <Input
+                        placeholder="Password" 
+                        value={password}
+                        onChangeText={setPassword}
+                        style={styles.textInput}
+                    />
+                </Item>
                 <Button
                     bordered danger
+                    disabled={!(password || email)}
                     onPress={handleFormSubmit}
                     style={styles.signupBtn}
                     ><Text style={styles.text}>Sign Up</Text>
                 </Button>
-            </View>
+            </Form>
             <Button
                 bordered danger
                 onPress={() => {navigation.navigate('Login')}}
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
         marginTop: '40%'
     },
     textInput: {
-        height: 70,
+        height: 30,
         margin: '4%'
     },
     signupBtn: {
@@ -95,9 +99,9 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 5,
-        left: '40%',
-        marginBottom: 10
+        marginTop: 15,
+        left: '56%',
+        marginBottom: 15
     },
     login: {
         alignItems: 'center',
