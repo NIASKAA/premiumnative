@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
-import {Alert, ActivityIndicator, StyleSheet} from 'react-native';
+import {ActivityIndicator, StyleSheet, View, TextInput} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
 import {useNavigation} from '@react-navigation/native'
 import {LOGIN} from '../utils/mutations'
-import {Content, Form, Input, Item, Button, Text} from 'native-base'
+import {Button, Text} from 'native-base'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 const LoginView = () => {
     const navigation = useNavigation()
@@ -30,32 +31,30 @@ const LoginView = () => {
     }
 
     return (
-        <Content style={styles.content}>
-            <Form style={styles.form}>
-                <Item>
-                    <Input 
-                        placeholder="Email" 
-                        value={email}
-                        onChangeText={setEmail}
-                        autoCorrect={false}
-                    />
-                </Item>
-                <Item>
-                    <Input 
-                        placeholder="Password" 
-                        value={password}
-                        onChangeText={setPassword}
-                        secureTextEntry
-                        autoCorrect={false}
-                    />
-                </Item>
+        <KeyboardAwareScrollView>
+            <View style={styles.form}>
+                <TextInput 
+                    placeholder="Email" 
+                    value={email}
+                    onChangeText={setEmail}
+                    autoCorrect={false}
+                    style={styles.textInput}
+                />
+                <TextInput 
+                    placeholder="Password" 
+                    value={password}
+                    onChangeText={setPassword}
+                    secureTextEntry
+                    autoCorrect={false}
+                    style={styles.textInput}
+                />
                 <Button
                     bordered danger
                     onPress={handleFormSubmit}
                     style={styles.loginBtn}
                 ><Text style={styles.text}>Login</Text>
                 </Button>
-            </Form>
+            </View>
             <Button 
                 bordered
                 onPress={() => {navigation.navigate('SignUp')}}
@@ -65,7 +64,7 @@ const LoginView = () => {
                     </Text>
             </Button>
             {loading && <ActivityIndicator size="large" />}
-        </Content>
+        </KeyboardAwareScrollView>
     )
 }
 
@@ -76,13 +75,17 @@ const styles = StyleSheet.create({
     form: {
         marginTop: '40%'
     },
+    textInput: {
+        height: 70,
+        margin: '4%'
+    },
     loginBtn: {
         height: 50,
         borderRadius: 5,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: 30,
-        left: '80%',
+        left: '55%',
         marginBottom: 20
     },
     signUpBtn: {
