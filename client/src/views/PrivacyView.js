@@ -24,7 +24,7 @@ const PrivacyView = () => {
                     <Text style={styles.text}>
                         Premium-Bandai Gunpla Finder also exists in an web application format. Feel free to use that to save your Gunplas!
                     </Text>
-                    <Button onPress={() => openUrl} style={styles.button}><Text>Go to Website!</Text></Button>
+                    <Button onPress={openUrl} style={styles.button}><Text>Go to Website!</Text></Button>
                 </View>
             </Content>
         </>

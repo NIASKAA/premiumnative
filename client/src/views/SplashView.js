@@ -23,7 +23,6 @@ const SplashView = () => {
     const token = await AsyncStorage.getItem('token');
     try {
       decoded = jwt_decode(token)
-      console.log(token)
       if(decoded.exp * 1000  < Date.now()) {
         console.log('Expired')
         navigation.navigate('Login')
