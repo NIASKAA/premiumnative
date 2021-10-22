@@ -1,5 +1,5 @@
 const {AuthenticationError} = require('apollo-server-express')
-const {HighGrade, RealGrade, MasterGrade, PerfectGrade, Converge, SDGrade, ProfileData, RE100} = require('../models')
+const {HighGrade, RealGrade, MasterGrade, PerfectGrade, Converge, SDGrade, ProfileData, RE100, Ensemble, GFrame} = require('../models')
 const {signToken} = require('../utils/auth')
 
 const resolvers = {
@@ -24,6 +24,12 @@ const resolvers = {
         },
         getOthers: async () => {
             return await RE100.find({})
+        },
+        getEnsemble: async () => {
+            return await Ensemble.find({})
+        },
+        getGFrame: async () => {
+            return await GFrame.find({})
         },
         user: async (parent, args, context) => {
             if(context.user) {
@@ -81,6 +87,20 @@ const resolvers = {
             }
             throw new AuthenticationError("Not logged in");
         },
+        getUserEnsemble: async (parent, args, context) => {
+            if(context.user) {
+                const userEnsemble = await ProfileData.findById(context.user._id).populate('gotEnsemble').populate('gunplaName')
+                return userEnsemble
+            }
+            throw new AuthenticationError("Not logged in")
+        },
+        getUserGFrame: async (parent, args, context) => {
+            if(context.user) {
+                const userGFrame = await ProfileData.findById(context.user._id).populate('gotGFrame').populate('gunplaName')
+                return userGFrame
+            }
+            throw new AuthenticationError("Not logged in")
+        },
         getUserConvergeWishlist: async (parent, args, context) => {
             if(context.user) {
                 const userConvergeWish = await ProfileData.findById(context.user._id).populate('convergeWish').populate('gunplaName')
@@ -129,6 +149,20 @@ const resolvers = {
                 return userOther
             }
             throw new AuthenticationError("Not logged in");
+        },
+        getUserEnsembleWishlist: async (parent, args, context) => {
+            if(context.user) {
+                const userEnsemble = await ProfileData.findById(context.user._id).populate('ensembleWish').populate('gunplaName')
+                return userEnsemble
+            }
+            throw new AuthenticationError('Not logged in');
+        },
+        getUserGFrameWishlist: async (parent, args, context) => {
+            if(context.user) {
+                const userGFrame = await ProfileData.findById(context.user._id).populate('gFrameWish').populate('gunplaName')
+                return userGFrame
+            }
+            throw new AuthenticationError('Not logged in');
         }
     },
 
@@ -268,6 +302,38 @@ const resolvers = {
                 new: true
             })
         },
+        saveEnsemble: async (parent, {name, id}, context) => {
+            let userId = context.user ? context.user._id: id
+            const findEnsemble = await Ensemble.findOne({gunplaName: name})
+            if(!findEnsemble) {
+                return 'Ensemble does not exist'
+            }
+            return await ProfileData.findByIdAndUpdate({
+                _id: userId
+            },
+            {
+                $push: {gotEnsemble: findEnsemble}
+            },
+            {
+                new: true
+            })
+        },
+        saveGFrame: async (parent, {name, id}, context) => {
+            let userId = context.user ? context.user._id: id
+            const findGFrame = await GFrame.findOne({gunplaName: name})
+            if(!findGFrame) {
+                return 'GFrame does not exist'
+            }
+            return await ProfileData.findByIdAndUpdate({
+                _id: userId
+            },
+            {
+                $push: {gotGFrame: findGFrame}
+            },
+            {
+                new: true
+            })
+        },
         convergeWishlist: async (parent, {name, id}, context) => {
             let userId = context.user ? context.user._id: id
             const fetchConverge = await Converge.findOne({gunplaName: name})
@@ -375,6 +441,38 @@ const resolvers = {
             },
             {
                 $push: {re100Wish: fetchOther}
+            },
+            {
+                new: true
+            })
+        },
+        ensembleWishlist: async (parent, {name, id}, context) => {
+            let userId = context.user ? context.user._id: id
+            const fetchEnsemble = await Ensemble.findOne({gunplaName: name})
+            if(!fetchEnsemble) {
+                return 'Ensemble does not exist'
+            }
+            return await ProfileData.findByIdAndUpdate({
+                _id: userId
+            },
+            {
+                $push: {ensembleWishlist: fetchEnsemble}
+            },
+            {
+                new: true
+            })
+        },
+        gFrameWishlist: async (parent, {name, id}, context) => {
+            let userId = context.user ? context.user._id: id
+            const fetchGFrame = await GFrame.findOne({gunplaName: name})
+            if(!fetchGFrame) {
+                return 'GFrame does not exist'
+            }
+            return await ProfileData.findByIdAndUpdate({
+                _id: userId
+            },
+            {
+                $push: {gFrameWishlist: fetchGFrame}
             },
             {
                 new: true
@@ -498,6 +596,36 @@ const resolvers = {
                 new: true
             })
         },
+        deleteEnsembleSave: async (parent, {ensembleID}, context) => {
+            return await ProfileData.findOneAndUpdate({
+                _id: context.user
+            },
+            {
+                $pull: {
+                    'gotEnsemble': {
+                        _id: ensembleID
+                    }
+                }
+            },
+            {
+                new: true
+            })
+        },
+        deleteGFrameSave: async (parent, {GFrameID}, context) => {
+            return await ProfileData.findOneAndUpdate({
+                _id: context.user
+            },
+            {
+                $pull: {
+                    'gotGFrame': {
+                        _id: GFrameID
+                    }
+                }
+            },
+            {
+                new: true
+            })
+        },
         deleteConvergeWishlist: async (parent, {convergeID}, context) => {
             try {
                 return await ProfileData.findOneAndUpdate({
@@ -613,6 +741,36 @@ const resolvers = {
                 $pull: {
                     're100Wish': {
                         _id: otherID
+                    }
+                }
+            },
+            {
+                new: true
+            })
+        },
+        deleteEnsembleWishlist: async (parent, {ensembleID}, context) => {
+            return await ProfileData.findOneAndUpdate({
+                _id: context.user
+            },
+            {
+                $pull: {
+                    'ensembleWishlist': {
+                        _id: ensembleID
+                    }
+                }
+            },
+            {
+                new: true
+            })
+        },
+        deleteGFrameWishlist: async (parent, {GFrameID}, context) => {
+            return await ProfileData.findOneAndUpdate({
+                _id: context.user
+            },
+            {
+                $pull: {
+                    'gFrameWishlist': {
+                        _id: GFrameID
                     }
                 }
             },

@@ -12,6 +12,8 @@ const typeDefs = gql`
         gotPerfectGrades: [PerfectGrade]
         gotSDGrades: [SDGrade]
         gotRE100s: [RE100]
+        gotEnsemble: [Ensemble]
+        gotGFrame: [GFrame]
         convergeWish: [Converge]
         realGradeWish: [RealGrade]
         highGradeWish: [HighGrade]
@@ -19,6 +21,8 @@ const typeDefs = gql`
         perfectGradeWish: [PerfectGrade]
         sdGradeWish: [SDGrade]
         re100Wish: [RE100]
+        ensembleWish: [Ensemble]
+        gFrameWish: [GFrame]
     }
 
     type HighGrade {
@@ -84,6 +88,24 @@ const typeDefs = gql`
         price: Float
     }
 
+    type Ensemble {
+        _id: ID
+        gunplaName: String
+        image: String
+        series: String
+        releaseDate: String
+        price: Float
+    }
+
+    type GFrame {
+        _id: ID
+        gunplaName: String
+        image: String
+        series: String
+        releaseDate: String
+        price: Float
+    }
+
     type Auth {
       token: ID
       user: ProfileData
@@ -97,6 +119,8 @@ const typeDefs = gql`
         getSD: [SDGrade]
         getConverges: [Converge]
         getOthers: [RE100]
+        getEnsemble: [Ensemble]
+        getGFrame: [GFrame]
         user: ProfileData
         getUserConverge: ProfileData
         getUserHighGrade: ProfileData
@@ -105,6 +129,8 @@ const typeDefs = gql`
         getUserPerfectGrade: ProfileData
         getUserSDGrade: ProfileData
         getUserOther: ProfileData
+        getUserEnsemble: ProfileData
+        getUserGFrame: ProfileData
         getUserConvergeWishlist: ProfileData
         getUserHighWishlist: ProfileData
         getUserRealWishlist: ProfileData
@@ -112,6 +138,8 @@ const typeDefs = gql`
         getUserPerfectWishlist: ProfileData
         getUserSDWishlist: ProfileData
         getUserOtherWishlist: ProfileData
+        getUserEnsembleWishlist: ProfileData
+        getUserGFrameWishlist: ProfileData
     }
 
     type Mutation {
@@ -124,6 +152,8 @@ const typeDefs = gql`
         savePerfectGrade(name: String! id: ID): ProfileData
         saveSDGrade(name: String! id: ID): ProfileData
         saveOthers(name: String! id: ID): ProfileData
+        saveEnsemble(name: String! id: ID): ProfileData
+        saveGFrame(name: String! id: ID): ProfileData
         convergeWishlist(name: String! id: ID): ProfileData
         highGradeWishlist(name: String! id: ID): ProfileData
         realGradeWishlist(name: String! id: ID): ProfileData
@@ -131,6 +161,8 @@ const typeDefs = gql`
         perfectGradeWishlist(name: String! id: ID): ProfileData
         SDGradeWishlist(name: String! id: ID): ProfileData
         otherWishlist(name: String! id: ID): ProfileData
+        ensembleWishlist(name: String! id: ID): ProfileData
+        gFrameWishlist(name: String! id: ID): ProfileData
         deleteConvergeSave(convergeID: ID! id: ID): ProfileData
         deleteHighGradeSave(highGradeID: ID! id: ID): ProfileData
         deleteRealGradeSave(realGradeID: ID! id: ID): ProfileData
@@ -138,6 +170,8 @@ const typeDefs = gql`
         deletePerfectGradeSave(perfectGradeID: ID! id: ID): ProfileData
         deleteSDGradeSave(sdGradeID: ID! id: ID): ProfileData
         deleteOtherSave(otherID: ID! id: ID): ProfileData
+        deleteEnsembleSave(ensembleID: ID! id: ID): ProfileData
+        deleteGFrameSave(GFrameID: ID! id: ID): ProfileData
         deleteConvergeWishlist(convergeID: ID! id:ID): ProfileData
         deleteHighGradeWishlist(highGradeID: ID! id:ID): ProfileData
         deleteRealGradeWishlist(realGradeID: ID! id: ID): ProfileData
@@ -145,6 +179,8 @@ const typeDefs = gql`
         deletePerfectGradeWishlist(perfectGradeID: ID! id: ID): ProfileData
         deleteSDGradeWishlist(SDGradeID: ID! id: ID): ProfileData
         deleteOtherWishlist(otherID: ID! id: ID): ProfileData
+        deleteEnsembleWishlist(ensembleID: ID! id: ID): ProfileData
+        deleteGFrameWishlist(GFrameID: ID! id: ID): ProfileData
     }
 `;
 module.exports = typeDefs;
