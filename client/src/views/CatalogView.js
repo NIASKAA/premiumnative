@@ -84,7 +84,7 @@ const CatalogView = () => {
                     <View style={styles.view}>
                         <Image 
                             style={styles.grades}
-                            source={{url: ''}}
+                            source={{url: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1635192622/catalog2_liqrsa.jpg'}}
                         />
                             <Text style={styles.convergeText}>Ensembles</Text>
                     </View>
@@ -94,7 +94,7 @@ const CatalogView = () => {
                     <View style={styles.view}>
                         <Image 
                             style={styles.grades}
-                            source={{url: ''}}
+                            source={{url: 'https://res.cloudinary.com/ddtqwizaf/image/upload/v1635192622/catalog1_bocnut.jpg'}}
                         />
                             <Text style={styles.convergeText}>G-Frames</Text>
                     </View>
