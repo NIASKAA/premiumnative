@@ -80,7 +80,7 @@ const CatalogView = () => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => {navigation.navigate('Ensemble')}}>
+                <TouchableOpacity onPress={() => {navigation.navigate('Ensembles')}}>
                     <View style={styles.view}>
                         <Image 
                             style={styles.grades}

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
 import {Content, Spinner} from "native-base"
 import {useQuery} from "@apollo/client"
-import {GET_ALL_GFRAME, GET_GFRAME_WISH} from '../../utils/queries'
+import {GET_ALL_GFRAME} from '../../utils/queries'
 import {GET_GFRAME} from '../../utils/state/actions'
 import {GFrameList} from '../../components/AllGradeCards'
 

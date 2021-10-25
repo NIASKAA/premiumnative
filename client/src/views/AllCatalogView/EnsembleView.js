@@ -33,6 +33,7 @@ const EnsembleView = () => {
     }, [loadEnsemble]);
 
     if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
+    
     return (
         <>
             <Content style={styles.content}>
