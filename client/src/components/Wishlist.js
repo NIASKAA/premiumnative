@@ -8,7 +8,9 @@ import {
     GET_MASTERGRADE_WISH, 
     GET_PERFECTGRADE_WISH,
     GET_SDGRADE_WISH,
-    GET_OTHER_WISH
+    GET_OTHER_WISH,
+    GET_ENSEMBLE_WISH,
+    GET_GFRAME_WISH,
 } from '../utils/queries'
 import {List, Text, Separator, Content} from 'native-base'
 import {
@@ -18,7 +20,9 @@ import {
     ConvergeWishlist, 
     RE100OtherWishlist, 
     PerfectGradeWishlist, 
-    SDGradeWishlist
+    SDGradeWishlist,
+    EnsembleWishlistText,
+    GFrameWishlistText
 } from './WishlistText'
 
 const Wishlist = () => {
@@ -29,6 +33,8 @@ const Wishlist = () => {
     const {loading: loadSDWish, data: SDWishData, refetch: refetchSD} = useQuery(GET_SDGRADE_WISH)
     const {loading: loadOtherWish, data: otherWishData, refetch: refetchOther} = useQuery(GET_OTHER_WISH)
     const {loading: loadConvergeWish, data: convergeWishData, refetch: refetchConverge} = useQuery(GET_CONVERGE_WISH)
+    const {loading: loadEnsembleWish, data: ensembleWishData, refetch: refetchEnsemble} = useQuery(GET_ENSEMBLE_WISH)
+    const {loading: loadGFrameWish, data: GFrameWishData, refetch: refetchGFrame} = useQuery(GET_GFRAME_WISH)
     const [loadConvergeList, setLoadConvergeList] = useState(undefined)
     const [loadRealList, setLoadRealList] = useState(undefined)
     const [loadMasterList, setLoadMasterList] = useState(undefined)
@@ -36,6 +42,8 @@ const Wishlist = () => {
     const [loadSDList, setLoadSDList] = useState(undefined)
     const [loadOtherList, setLoadOtherList] = useState(undefined)
     const [loadHighList, setLoadHighList] = useState(undefined)
+    const [loadEnsembleList, setLoadEnsembleList] = useState(undefined)
+    const [loadGFrameList, setLoadGFrameList] = useState(undefined)
     const [refreshing, setRefreshing] = React.useState(false)
 
     const wait = (timeout) => {
@@ -51,6 +59,8 @@ const Wishlist = () => {
         refetchPerfect();
         refetchOther();
         refetchSD();
+        refetchEnsemble();
+        refetchGFrame();
         wait(2000).then(() => setRefreshing(false));
     }, []);
 
@@ -75,33 +85,46 @@ const Wishlist = () => {
         refetchReal();
     }, [loadRealWish, realWishData])
  
-     useEffect(() => {
+    useEffect(() => {
         if(!loadMasterList && masterWishData) {
             setLoadMasterList(masterWishData.getUserMasterWishlist.masterGradeWish)
         } else return
         refetchMaster();
-     }, [loadMasterList, masterWishData])
+    }, [loadMasterList, masterWishData])
  
-     useEffect(() => {
+    useEffect(() => {
         if(!loadPerfectGradeList && perfectGradeWishData) {
             setLoadPerfectGradeList(perfectGradeWishData.getUserPerfectWishlist.perfectGradeWish)
         } else return
         refetchPerfect();
-     }, [loadPerfectGradeList, perfectGradeWishData])
+    }, [loadPerfectGradeList, perfectGradeWishData])
  
-     useEffect(() => {
+    useEffect(() => {
         if(!loadSDList && SDWishData) {
             setLoadSDList(SDWishData.getUserSDWishlist.sdGradeWish)
         } else return
         refetchSD();
-     }, [loadSDList, SDWishData])
+    }, [loadSDList, SDWishData])
  
-     useEffect(() => {
+    useEffect(() => {
         if(!loadOtherList && otherWishData) {
         setLoadOtherList(otherWishData.getUserOtherWishlist.re100Wish)
         } else return
         refetchOther();
-     }, [loadOtherList, otherWishData])
+    }, [loadOtherList, otherWishData])
+
+    useEffect(() => {
+        if(!loadEnsembleList && ensembleWishData) {
+            setLoadEnsembleList(ensembleWishData.getUserEnsembleWishlist.ensembleWish)
+        } else return
+        refetchEnsemble();
+    }, [loadEnsembleList, ensembleWishData])
+
+    useEffect(() => {
+        if(!loadGFrameList && GFrameWishData) {
+            setLoadGFrameList(GFrameWishData.getGFrameWishlist.gFrameWish)
+        }
+    })
 
     return (
         <SafeAreaView style={{flex: 1}}>
@@ -138,6 +161,14 @@ const Wishlist = () => {
                             <Text>Converges</Text>
                         </Separator>
                         {loadConvergeList && !loadConvergeWish && <ConvergeWishlist converges={loadConvergeList}/>}
+                        <Separator bordered>
+                            <Text>Ensembles</Text>
+                        </Separator>
+                        {loadEnsembleList && !loadEnsembleWish && <EnsembleWishlistText ensembles={loadEnsembleList} />}
+                        <Separator bordered>
+                            <Text>G-Frames</Text>
+                        </Separator>
+                        {loadGFrameList && !loadGFrameWish && <GFrameWishlistText GFrames={loadGFrameList} />}
                     </List>
                 </Content>
             </ScrollView>
