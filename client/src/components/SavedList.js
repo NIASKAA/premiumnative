@@ -9,7 +9,9 @@ import {
     GET_SAVE_MASTERGRADE, 
     GET_SAVE_PERFECTGRADE, 
     GET_SAVE_SDGRADE, 
-    GET_SAVE_OTHER
+    GET_SAVE_OTHER,
+    GET_SAVE_ENSEMBLE,
+    GET_SAVE_GFRAME
 } from '../utils/queries'
 import {
     HighGradeListText, 
@@ -18,7 +20,9 @@ import {
     MasterGradeListText, 
     PerfectGradeListText, 
     SDGradeListText, 
-    ConvergeListText
+    ConvergeListText,
+    EnsembleListText,
+    GFrameListText
 } from './SavedListText'
 
 const SavedList = () => {
@@ -29,6 +33,8 @@ const SavedList = () => {
     const {loading: loadPerfect, data: perfectData, refetch: refetchPerfect} = useQuery(GET_SAVE_PERFECTGRADE)
     const {loading: loadSD, data: sdData, refetch: refetchSD} = useQuery(GET_SAVE_SDGRADE)
     const {loading: loadOther, data: otherData, refetch: refetchOther} = useQuery(GET_SAVE_OTHER)
+    const {loading: loadEnsemble, data: ensembleData, refetch: refetchEnsemble} = useQuery(GET_SAVE_ENSEMBLE)
+    const {loading: loadGFrame, data: GFrameData, refetch: refetchGFrame} = useQuery(GET_SAVE_GFRAME)
     const [loadConverge, setLoadConverge] = useState(null)
     const [loadHighGrade, setLoadHighGrade] = useState(null)
     const [loadRealGrade, setLoadRealGrade] = useState(null)
@@ -36,6 +42,8 @@ const SavedList = () => {
     const [loadPerfectGrade, setLoadPerfectGrade] = useState(null)
     const [loadSDGrade, setLoadSDGrade] = useState(null)
     const [loadOtherGrade, setLoadOtherGrade] = useState(null)
+    const [loadEnsembleGrade, setLoadEnsembleGrade] = useState(null)
+    const [loadGFrameGrade, setLoadGFrameGrade] = useState(null)
     const [refreshing, setRefreshing] = React.useState(false)
 
     const wait = (timeout) => {
@@ -51,6 +59,8 @@ const SavedList = () => {
         refetchReal();
         refetchPerfect();
         refetchSD();
+        refetchEnsemble();
+        refetchGFrame();
         wait(2000).then(() => setRefreshing(false));
     }, []);
 
@@ -118,6 +128,22 @@ const SavedList = () => {
         refetchOther();
     }, [loadOther, otherData])
 
+    useEffect(() => {
+        if(!loadEnsemble && ensembleData) {
+            setLoadEnsembleGrade(ensembleData.getUserEnsemble.gotEnsemble)
+        } else {
+            return
+        }
+    }, [loadEnsemble, ensembleData])
+
+    useEffect(() => {
+        if(!loadGFrame && GFrameData) {
+            setLoadGFrameGrade(GFrameData.getUserGFrame.gotGFrame)
+        } else {
+            return
+        }
+    }, [loadGFrame, GFrameData])
+
     return (
         <SafeAreaView style={{flex: 1}}>
             <ScrollView
@@ -153,6 +179,14 @@ const SavedList = () => {
                             <Text>Converges</Text>
                         </Separator>
                         {loadConverge && !loading && <ConvergeListText converges={loadConverge}/>}
+                        <Separator bordered>
+                            <Text>Ensembles</Text>
+                        </Separator>
+                        {loadEnsemble ** !loadEnsemble && <EnsembleListText ensembles={loadEnsemble} />}
+                        <Separator>
+                            <Text>G-Frames</Text>
+                        </Separator>
+                        {loadGFrame && !loadGFrame && <GFrameListText GFrames={loadGFrame} />}
                     </List>
                 </Content>
             </ScrollView>

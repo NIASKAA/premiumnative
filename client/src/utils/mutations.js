@@ -136,6 +136,38 @@ export const SAVE_OTHERS = gql`
     }
 `;
 
+export const SAVE_ENSEMBLE = gql`
+    mutation saveEnsemble($name: String!, $id: ID) {
+        saveEnsemble(name: $name id: $id) {
+            username
+            email
+            gotEnsemble {
+                _id
+                gunplaName
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const SAVE_GFRAME = gql`
+    mutation saveGFrame($name: String!, $id: ID) {
+        saveGFrame(name: $name id: $id) {
+            username
+            email
+            gotGFrame {
+                _id
+                gunplaName
+                series
+                releaseDate
+                price  
+            }
+        }
+    }
+`;
+
 export const CONVERGE_WISHLIST = gql`
     mutation convergeWishlist($name: String! $id: ID) {
         convergeWishlist(name: $name id: $id) {
