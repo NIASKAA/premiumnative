@@ -80,7 +80,25 @@ const CatalogView = () => {
                     </View>
                 </TouchableOpacity>
 
-                
+                <TouchableOpacity onPress={() => {navigation.navigate('Ensemble')}}>
+                    <View style={styles.view}>
+                        <Image 
+                            style={styles.grades}
+                            source={{url: ''}}
+                        />
+                            <Text style={styles.convergeText}>Ensembles</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={() => {navigation.navigate('GFrame')}}>
+                    <View style={styles.view}>
+                        <Image 
+                            style={styles.grades}
+                            source={{url: ''}}
+                        />
+                            <Text style={styles.convergeText}>G-Frames</Text>
+                    </View>
+                </TouchableOpacity>
             </Content>
 
             <BottomNavigation/>
