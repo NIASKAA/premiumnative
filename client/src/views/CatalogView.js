@@ -79,6 +79,8 @@ const CatalogView = () => {
                             <Text style={styles.convergeText}>Converges</Text>
                     </View>
                 </TouchableOpacity>
+
+                
             </Content>
 
             <BottomNavigation/>

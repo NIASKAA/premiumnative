@@ -32,6 +32,8 @@ import {
   RealGradeInfoView, 
   PerfectGradeInfoView, 
   SDGradeInfoView,
+  EnsembleInfoView,
+  GFrameInfoView
 } from '../views/InfoViews'
 
 export default function Navigation() {
@@ -185,6 +187,18 @@ function RootNavigator() {
             <Stack.Screen
               name="SDGradeInfoView"
               component={SDGradeInfoView}
+              options={{title: 'More-Info'}}
+            />
+
+            <Stack.Screen
+              name="EnsembleInfoVIew"
+              component={EnsembleInfoView}
+              options={{title: 'More-Info'}}
+            />
+
+            <Stack.Screen
+              name="GFrameInfoView"
+              component={GFrameInfoView}
               options={{title: 'More-Info'}}
             />
 
