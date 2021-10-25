@@ -20,7 +20,9 @@ import {
   MasterGradeView, 
   PerfectGradeView, 
   SDGradeView, 
-  ConvergeView
+  ConvergeView,
+  EnsembleView,
+  GFrameView,
 } from '../views/AllCatalogView'
 import {
   ConvergeInfoView, 
@@ -29,7 +31,7 @@ import {
   RE100OtherInfoView, 
   RealGradeInfoView, 
   PerfectGradeInfoView, 
-  SDGradeInfoView
+  SDGradeInfoView,
 } from '../views/InfoViews'
 
 export default function Navigation() {
@@ -132,6 +134,18 @@ function RootNavigator() {
               options={{title: 'Converges'}}
             />
 
+            <Stack.Screen
+              name="Ensembles"
+              component={EnsembleView}
+              options={{title: "Ensembles"}}
+            />
+
+            <Stack.Screen 
+              name="GFrame"
+              component={GFrameView}
+              options={{title: 'GFrame'}}
+            />
+            
             <Stack.Screen
               name="ConvergeInfoView"
               component={ConvergeInfoView}

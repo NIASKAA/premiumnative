@@ -136,6 +136,38 @@ export const SAVE_OTHERS = gql`
     }
 `;
 
+export const SAVE_ENSEMBLE = gql`
+    mutation saveEnsemble($name: String!, $id: ID) {
+        saveEnsemble(name: $name id: $id) {
+            username
+            email
+            gotEnsemble {
+                _id
+                gunplaName
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const SAVE_GFRAME = gql`
+    mutation saveGFrame($name: String!, $id: ID) {
+        saveGFrame(name: $name id: $id) {
+            username
+            email
+            gotGFrame {
+                _id
+                gunplaName
+                series
+                releaseDate
+                price  
+            }
+        }
+    }
+`;
+
 export const CONVERGE_WISHLIST = gql`
     mutation convergeWishlist($name: String! $id: ID) {
         convergeWishlist(name: $name id: $id) {
@@ -244,6 +276,40 @@ export const OTHER_WISHLIST = gql`
             username
             email
             re100Wish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const ENSEMBLE_WISHLIST = gql`
+    mutation ensembleWishlist($name: String! $id: ID) {
+        ensembleWishlist(name: $name id: $id) {
+            username
+            email
+            ensembleWish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const GFRAME_WISHLIST = gql`
+    mutation gFrameWishlist($name: String! $id: ID) {
+        gFrameWishlist(name: $name id: $id) {
+            username
+            email
+            gFrameWish {
                 _id
                 gunplaName
                 image
@@ -374,6 +440,40 @@ export const DELETE_OTHER_SAVE = gql`
     }
 `;
 
+export const DELETE_ENSEMBLE_SAVE = gql`
+    mutation deleteEnsembleSave($ensembleID: ID! $id: ID) {
+        deleteEnsembleSave(ensembleID: $ensembleID id: $id) {
+            username
+            email
+            gotEnsemble {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const DELETE_GFRAME_SAVE = gql`
+    mutation deleteGFrameSave($GFrameID: ID! $id: ID) {
+        deleteGFrameSave(GFrameID: $GFrame id: $id) {
+            username
+            email
+            gotGFrame {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
 export const DELETE_CONVERGE_WISHLIST = gql`
     mutation deleteConvergeWishlist($convergeID: ID! $id: ID){
         deleteConvergeWishlist(convergeID: $convergeID id: $id) {
@@ -482,6 +582,40 @@ export const DELETE_OTHER_WISHLIST = gql`
             username
             email
             re100Wish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const DELETE_ENSEMBLE_WISHLIST = gql`
+    mutation deleteEnsembleWishlist($ensembleID: ID $id: ID) {
+        deleteEnsembleWishlist(ensembleID: $ensembleID id: $id) {
+            username
+            email
+            ensembleWish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const DELETE_GFRAME_WISHLIST = gql`
+    mutation deleteGFrameWishlist($GFrameID: ID $id: ID) {
+        deleteGFrameWishlist(GFrameID: $GFrameID id: $id) {
+            username
+            email
+            gFrameWish {
                 _id
                 gunplaName
                 image

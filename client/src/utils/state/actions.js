@@ -6,3 +6,5 @@ export const GET_PGS = "GET_PGS";
 export const GET_SDS = "GET_SDS";
 export const GET_OTHERS = "GET_OTHERS";
 export const GET_HG_WISH = "GET_HG_WISH";
+export const GET_ENSEMBLE = "GET_ENSEMBLE";
+export const GET_GFRAME = "GET_GFRAME";

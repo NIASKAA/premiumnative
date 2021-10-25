@@ -9,6 +9,8 @@ const initialState = {
     getPG: [],
     getSD: [],
     getOthers: [],
+    getEnsemble: [],
+    getGFrame: [],
     getHGWish: [],
 }
 

@@ -91,6 +91,33 @@ export const GET_ALL_OTHERS = gql`
 }
 `;
 
+export const GET_ALL_ENSEMBLE = gql`
+{
+    getEnsemble {
+        _id
+        gunplaName
+        image
+        series
+        releaseDate
+        price
+    }
+}
+`;
+
+export const GET_ALL_GFRAME = gql`
+{
+    getGFrame {
+        _id
+        gunplaName
+        image
+        series
+        releaseDate
+        price
+    }
+}
+`;
+
+
 export const QUERY_USER = gql`
     query {
         user {
@@ -221,6 +248,40 @@ export const GET_SAVE_OTHER = gql`
     }
 `;
 
+export const GET_SAVE_ENSEMBLE = gql`
+    query {
+        getUserEnsemble {
+            username
+            email
+            gotEnsemble {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const GET_SAVE_GFRAME = gql`
+    query {
+        getUserGFrame {
+            username
+            email
+            gotGFrame {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
 export const GET_CONVERGE_WISH = gql`
     query {
         getUserConvergeWishlist{
@@ -329,6 +390,40 @@ export const GET_OTHER_WISH = gql`
             username
             email
             re100Wish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const GET_ENSEMBLE_WISH = gql`
+    query {
+        getUserEnsembleWishlist {
+            username
+            email
+            ensembleWish {
+                _id
+                gunplaName
+                image
+                series
+                releaseDate
+                price
+            }
+        }
+    }
+`;
+
+export const GET_GFRAME_WISH = gql`
+    query {
+        getUserGFrameWishlist {
+            username
+            email
+            gFrameWish {
                 _id
                 gunplaName
                 image
