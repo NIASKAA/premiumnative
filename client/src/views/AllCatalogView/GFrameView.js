@@ -24,6 +24,7 @@ const GFrameView = () => {
                 setAllGFrame(getGFrame)
             }
         }
+        console.log(data)
     }, [loading, data])
 
     useEffect(() => {
