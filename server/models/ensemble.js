@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const ensemble = new mongoose.Scheme({
+const ensemble = new mongoose.Schema({
     gunplaName: {type: String},
     image: {type: String},
     series: {type: String},

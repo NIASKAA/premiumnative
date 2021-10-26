@@ -24,6 +24,7 @@ const EnsembleView = () => {
                 setAllEnsemble(getEnsemble)
             }
         }
+        console.log(data)
     }, [loading, data])
 
     useEffect(() => {
