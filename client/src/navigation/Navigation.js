@@ -133,7 +133,7 @@ function RootNavigator() {
             <Stack.Screen
               name="Converges"
               component={ConvergeView}
-              options={{title: 'Converges'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen

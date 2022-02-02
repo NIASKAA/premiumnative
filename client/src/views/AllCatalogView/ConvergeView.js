@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
-import {Content, Spinner, Item, Icon, Input} from "native-base"
+import {Content, Spinner, Item, Icon, Input, Header, Title, Left, Right, Body} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_CONVERGES} from '../../utils/queries'
 import {GET_CONVERGES} from '../../utils/state/actions'
@@ -49,18 +49,25 @@ const ConvergeView = () => {
 
     return (
         <>
+            <Header searchBar rounded>
+              <Left/>
+                <Body>
+                  <Title>Converges</Title>
+                  <Item>
+                    <Icon name="ios-search" />
+                    <Input placeholder="Search" 
+                      value={searchGunpla}
+                      onChangeText={(text) => {
+                        setSearchGunpla(text)
+                        searchHandler(searchGunpla)
+                      }}
+                    />
+                  </Item>
+                </Body>
+              <Right />
+            </Header>
             <Content style={styles.content}>
               <View style={styles.view}>
-                <Item>
-                  <Icon name="ios-search" />
-                  <Input placeholder="Search" 
-                    value={searchGunpla}
-                    onChangeText={(text) => {
-                      setSearchGunpla(text)
-                      searchHandler(searchGunpla)
-                    }}
-                  />
-                </Item>
                 {loadingConverge && <Spinner color="#a9a9a9" style={styles.spinner}/>}
                 {!loadingConverge && !loading && <ConvergeList converges={AllConverge}/>}
               </View>
