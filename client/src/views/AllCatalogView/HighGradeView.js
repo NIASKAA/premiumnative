@@ -51,7 +51,6 @@ const HighGradeView = () => {
             <Header searchBar rounded>
                 <Left/>
                     <Body>
-                        <Title>High Grades</Title>
                         <Item>
                             <Icon name="ios-search"/>
                             <Input placeholder="Search"

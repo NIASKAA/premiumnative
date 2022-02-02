@@ -49,14 +49,15 @@ const PerfectGradeView = () => {
             <Header searchBar rounded>
                 <Left/>
                     <Body>
-                        <Title>Perfect Grades</Title>
-                        <Icon name="ios-search"/>
-                        <Input placeholder="Search"
-                            value={searchGunpla}
-                            onChangeText={(text) => {
-                                setSearchGunpla(text);
-                                searchHandler(searchGunpla);
-                            }}/>
+                        <Item>
+                            <Icon name="ios-search"/>
+                            <Input placeholder="Search"
+                                value={searchGunpla}
+                                onChangeText={(text) => {
+                                    setSearchGunpla(text);
+                                    searchHandler(searchGunpla);
+                                }}/>
+                        </Item>
                     </Body>
                 <Right/>
             </Header>

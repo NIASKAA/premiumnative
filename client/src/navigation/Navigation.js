@@ -97,55 +97,46 @@ function RootNavigator() {
             <Stack.Screen
               name="HighGrades"
               component={HighGradeView}
-              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="RealGrades"
               component={RealGradeView}
-              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="RE100Others"
               component={RE100OtherView}
-              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="MasterGrades"
               component={MasterGradeView}
-              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="PerfectGrades"
-              component={PerfectGradeView}
-              options={{headerShown: false}}
+              component={PerfectGradeView}  
             />
 
             <Stack.Screen
               name="SDGrades"
-              component={SDGradeView}
-              options={{headerShown: false}}
+              component={SDGradeView}    
             />
 
             <Stack.Screen
               name="Converges"
-              component={ConvergeView}
-              options={{headerShown: false}}
+              component={ConvergeView}          
             />
 
             <Stack.Screen
               name="Ensembles"
-              component={EnsembleView}
-              options={{headerShown: false}}
+              component={EnsembleView} 
             />
 
             <Stack.Screen 
               name="GFrame"
               component={GFrameView}
-              options={{headerShown: false}}
             />
             
             <Stack.Screen

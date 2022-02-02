@@ -49,18 +49,17 @@ const RE100OtherView = () => {
         <>
             <Header>
                 <Left/>
-                <Body>
-                    <Title>RE/100</Title>
-                    <Item>
-                        <Icon name="ios-search"/>
-                        <Input placeholder="Search"
-                            value={searchGunpla}
-                            onChangeText={(text) => {
-                                setSearchGunpla(text);
-                                searchHandler(searchGunpla);
-                            }}/>
-                    </Item>
-                </Body>
+                    <Body>
+                        <Item>
+                            <Icon name="ios-search"/>
+                            <Input placeholder="Search"
+                                value={searchGunpla}
+                                onChangeText={(text) => {
+                                    setSearchGunpla(text);
+                                    searchHandler(searchGunpla);
+                                }}/>
+                        </Item>
+                    </Body>
                 <Right/>
             </Header>
             <Content style={styles.content}>

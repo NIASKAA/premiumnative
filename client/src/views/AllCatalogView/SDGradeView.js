@@ -50,7 +50,6 @@ const SDGradeView = () => {
             <Header>
                 <Left/>
                     <Body>
-                        <Title>SD Grades</Title>
                         <Item>
                             <Icon name='ios-search'/>
                             <Input placeholder="Search"

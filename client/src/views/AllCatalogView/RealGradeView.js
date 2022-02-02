@@ -49,7 +49,6 @@ const RealGradeView = () => {
             <Header searchBar rounded>
                 <Left/>
                     <Body>
-                        <Title>Real Grades</Title>
                         <Item>
                             <Icon name="ios-search"/>
                             <Input placeholder="Search"
