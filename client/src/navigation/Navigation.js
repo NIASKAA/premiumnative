@@ -97,37 +97,37 @@ function RootNavigator() {
             <Stack.Screen
               name="HighGrades"
               component={HighGradeView}
-              options={{title: 'High-Grades'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="RealGrades"
               component={RealGradeView}
-              options={{title: 'Real-Grades'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="RE100Others"
               component={RE100OtherView}
-              options={{title: 'RE100/Others'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="MasterGrades"
               component={MasterGradeView}
-              options={{title: 'Master-Grades'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="PerfectGrades"
               component={PerfectGradeView}
-              options={{title: 'Perfect-Grades'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
               name="SDGrades"
               component={SDGradeView}
-              options={{title: 'SD-Grades'}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen
@@ -139,13 +139,13 @@ function RootNavigator() {
             <Stack.Screen
               name="Ensembles"
               component={EnsembleView}
-              options={{title: "Ensembles"}}
+              options={{headerShown: false}}
             />
 
             <Stack.Screen 
               name="GFrame"
               component={GFrameView}
-              options={{title: 'GFrame'}}
+              options={{headerShown: false}}
             />
             
             <Stack.Screen

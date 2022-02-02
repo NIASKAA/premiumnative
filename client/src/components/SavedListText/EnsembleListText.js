@@ -4,7 +4,7 @@ import {useNavigation} from '@react-navigation/native'
 import {Text, ListItem} from 'native-base'
 
 const EnsembleListText = ({ensembles}) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation()
 
     return (
         <>

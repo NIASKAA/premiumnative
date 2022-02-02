@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
-import {Content, Spinner} from "native-base"
+import {Content, Spinner, Item, Icon, Input, Header, Title, Left, Body, Right} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_MG} from '../../utils/queries'
 import {GET_MGS} from '../../utils/state/actions'
@@ -14,6 +14,7 @@ const MasterGradeView = () => {
     const {loading, data, refetch} = useQuery(GET_ALL_MG)
     let {getMG} = state
     const [AllMasterGrade, setAllMasterGrade] = useState(() => [])
+    const [searchGunpla, setSearchGunpla] = useState("");
 
     useEffect(() => {
         if(loading === false && data) {
@@ -33,10 +34,36 @@ const MasterGradeView = () => {
         }, 3000)
     }, [loadMasterGrade])
 
+    const searchHandler = (input) => {
+        if(searchGunpla.trim().length <= 1 && getMG.length <= 1) {
+            dispatch({type: GET_MGS, payload: data.getMG})
+            setAllMasterGrade(state.getMG)
+        } else {
+            setAllMasterGrade.filter((masterGrade) => masterGrade.gunplaName.trim().toLowerCase().includes(input.trim().toLowerCase()))
+        }
+    }
+
     if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
     
     return (
         <>
+            <Header searchBar rounded>
+                <Left/>
+                    <Body>
+                        <Title>Master Grades</Title>
+                        <Item>
+                            <Icon name="ios-search"/>
+                            <Input placeholder="Search"
+                                value={searchGunpla}
+                                onChangeText={(text) => {
+                                    setSearchGunpla(text);
+                                    searchHandler(searchGunpla);
+                                }}
+                            />
+                        </Item>
+                    </Body>
+                <Right/>
+            </Header>
             <Content style={styles.content}>
                 <View style={styles.view}>
                     {loadMasterGrade && <Spinner color="#a9a9a9" style={styles.spinner}/>}

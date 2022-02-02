@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {useDispatch, useSelector} from "react-redux"
-import {Content, Spinner} from "native-base"
+import {Content, Spinner, Item, Icon, Input, Header, Title, Right, Left, Body} from "native-base"
 import {useQuery} from "@apollo/client"
 import {GET_ALL_SD} from '../../utils/queries'
 import {GET_SDS} from '../../utils/state/actions'
@@ -14,6 +14,7 @@ const SDGradeView = () => {
     const {loading, data} = useQuery(GET_ALL_SD)
     let {getSD} = state
     const [AllSDGrade, setAllSDGrade] = useState(() => [])
+    const [searchGunpla, setSearchGunpla] = useState("");
 
     useEffect(() => {
         if(loading === false && data) {
@@ -32,10 +33,36 @@ const SDGradeView = () => {
         }, 3000)
     }, [loadSDGrade])
 
+    const searchHandler = (input) => {
+        if(searchGunpla.trim().length <= 1 && getSD.length <= 1) {
+            dispatch({type: GET_SDS, payload: data.getSD})
+            setAllSDGrade(state.getSD)
+        } else {
+            setAllSDGrade.filter((sdGrade) => sdGrade.length.trim().toLowerCase().includes(input.trim().toLowerCase())) 
+        }
+    }
+
     if(loading) return <Spinner color="#a9a9a9" style={styles.spinner}/>
 
     return (
+        
         <>
+            <Header>
+                <Left/>
+                    <Body>
+                        <Title>SD Grades</Title>
+                        <Item>
+                            <Icon name='ios-search'/>
+                            <Input placeholder="Search"
+                                value={searchGunpla}
+                                onChangeText={(text) => {
+                                    setSearchGunpla(text);
+                                    searchHandler(searchGunpla);
+                                }}/>
+                        </Item>
+                    </Body>
+                <Right/>
+            </Header>
             <Content style={styles.content}>
                 <View style={styles.view}>
                     {loadSDGrade && <Spinner color="#a9a9a9" style={styles.spinner}/>}
