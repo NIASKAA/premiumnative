@@ -1,11 +1,26 @@
 import React, {useEffect} from 'react'
-import {TouchableOpacity, StyleSheet, Image, View} from 'react-native'
+import {TouchableOpacity, StyleSheet, Image, View, AsyncStorage} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import BottomNavigation from '../components/Footer'
 import {Text, Header, Content, Title} from 'native-base'
 
 const CatalogView = () => {
-    const navigation = useNavigation()
+    const navigation = useNavigation();
+
+    useEffect(() => {
+        fetchToken();
+    }, [])
+
+    const fetchToken = () => {
+        try {
+            AsyncStorage
+            .getItem('token')
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>

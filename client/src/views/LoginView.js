@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import {ActivityIndicator, StyleSheet} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useMutation} from '@apollo/client'
@@ -12,6 +12,24 @@ const LoginView = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [login, {data, error, loading}] = useMutation(LOGIN)
+
+    useEffect(() => {
+        fetchToken()
+    }, [])
+
+    const fetchToken = () => {
+        try {
+            AsyncStorage
+            .getItem('token')
+            .then(value => {
+                if(value != null) {
+                    navigation.navigate('Catalog')
+                }
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     if(data) {
         AsyncStorage
